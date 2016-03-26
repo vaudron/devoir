@@ -1,0 +1,183 @@
+/* Stylesheet für Kreuzworträtsel */
+
+.kreuzwort-quiz {
+	display: block;
+	float: left;
+	margin: 10px 0px;
+	padding: 0px;
+	width: 100%;
+	background: none;
+	clear: both;
+}
+
+.kreuzwort-quiz h2 {
+	margin: 0px;
+	padding: 15px 20px;
+	clear: both;
+}
+
+.kreuzwort-quiz p {
+	margin: 0px;
+	padding: 10px;
+	clear: both;
+}
+
+.kreuzwort-quiz .gitter {
+	display: block;
+	float: left;
+	margin: 0 10px;
+	border-collapse: collapse;
+}
+
+.kreuzwort-quiz .gitter td {
+	margin: 0;
+	padding: 0;
+	width: 1.5em;
+	height: 1.5em;
+	text-align: center;
+	font-weight: bold;
+	font-family: Verdana, sans-serif;
+}
+
+.kreuzwort-quiz .gitter .feld {
+	background: #FFF none repeat scroll 0% 0%;
+	border: 1px solid #999;
+	box-shadow: 0px 0px 3px #888;
+	color: blue;
+}
+
+.kreuzwort-quiz .gitter .einfuegemarke {
+	display: block;
+	width: auto;
+	position: absolute;
+	margin: -6px 0 0 -8px;
+	padding: 0px 0px 0px 2px;
+	background: #ffffff;
+	font-size: 9px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	color: black;
+}
+
+/* nicht für IE! */
+.kreuzwort-quiz .gitter td > .einfuegemarke {
+	margin: -6px 0 0 -4px;
+	padding: 0 0 0 2px;
+}
+
+.kreuzwort-quiz .eingabe {
+	display: none;
+	background: #C0C0FF none repeat scroll 0% 0%;
+	width: 696px;
+	position: relative;
+	border: 1px solid #00F;
+	clear: both;
+	overflow: auto;
+	box-shadow: 3px 3px 5px rgb(51, 51, 51);
+	top: 10px;
+}
+
+.kreuzwort-quiz .eingabe .eingabe-header {
+	background:  url(../images/eingabe_header.png) no-repeat top left;
+	height: 17px;
+	cursor: move;
+}
+
+.kreuzwort-quiz .eingabe .schliessen-button {
+	display: block;
+	width: 15px;
+	height: 17px;
+	margin: 0 0 0 auto;
+	background: url(../images/eingabe_schliessen.png) no-repeat top right;
+}
+
+/* Eingabehinweis, der sich beim Hovern über ein Hilfe-Symbol automatisch anzeigt */
+.kreuzwort-quiz .eingabehinweis {
+	position: absolute;
+	top: 17px; /* enspricht Höhe "eingabe-header" */
+	right: 0px;
+	background: url(../images/help.gif) right top no-repeat;
+	cursor: help;
+	border: 1px solid transparent;
+}
+
+.kreuzwort-quiz .eingabehinweis span {
+	display: none;
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	margin: 0;
+	padding: 1em 2em 1em 1em;
+	font-size: 75%;
+	font-weight: bold;
+	width: 300px;
+	height: auto;
+	background: #ffffff url(../images/help.gif) right top no-repeat;
+	border: 1px solid #888888;
+}
+
+
+/* Anzeige der Nummer, die im Gitter angeklickt wurde */
+.kreuzwort-quiz .eingabe .nummer {
+	display: block;
+	float: left;
+	height: 1.2em;
+	margin: -0.2em 2px 0 0;
+	padding: 0 3px;
+	font-size: 70%;
+	text-align: center;
+	border: 1px solid black;
+}
+
+.kreuzwort-quiz .eingabe .richtung {
+	display: block;
+	font-size: 75%;
+	font-weight: bold;
+}
+
+.kreuzwort-quiz .eingabezeile {
+	clear: both;
+	margin: 0 0 1em 0;
+	padding: 0 0 0 1em;
+	vertical-align: bottom;
+}
+
+.kreuzwort-quiz .eingabezeile span {
+	display: block;
+	float: left;
+	width: 1.2em;
+	height: 1.2em;
+	margin: 0 2px;
+	padding: 0;
+	border: 1px solid #60ff60;
+	background : #c0ffc0;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}
+
+.kreuzwort-quiz .eingabezeile span.aktiv {
+	border-color: #ff0000;
+	background: #c0ffc0;
+	color: #ff0000;
+}
+
+.kreuzwort-quiz .eingabezeile input {
+	margin: 0 0 0 10px;
+}
+
+.kreuzwort-quiz .texteingabefeld {
+	position: relative;
+	left: -20000px;
+	width: 2px;
+	font-size: 1%
+}
+
+.kreuzwort-quiz .uebersicht {
+	display: none;
+}
+
+.kreuzwort-quiz .auswertungs-button {
+    float: none;
+    padding: 5px;
+}

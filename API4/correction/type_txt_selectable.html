@@ -1,0 +1,48 @@
+<h1>Correction d'une activité "texte sélectionnable"</h1>
+<div style="left: 160px; top: 1.5em;"> Note attribuée à l'activité :
+    <input id="mcNote" type="number" step="0.1" min="0" class="text_eleve" style="width: 5em;text-align: center;height:2em;">
+</div>
+<div style="margin-top: 10px;">Pénalité en cas de fausse réponce <input id="mcPenalite" value="0" type="number" step="0.1" min="0" class="text_eleve" style="width:3em;text-align:center;"></div>
+<div style="border: 1px solid rgb(153, 153, 153); border-radius: 10px; padding: 10px; position: relative;top:2em;">
+
+    <div style="background-color: white; position: absolute; top: -16px; left: 20px; padding: 5px;">Correction : </div>
+    <div id="mccorrige" class="textSelectablecorrige" style=""></div>
+
+
+</div>
+
+<script>
+    $("#mccorrige").on("click", "span.txtSelectable", function (event) {
+        var id = $(maPage.selection.objets[0]).attr("id");
+        var $iffElement = $(maPage.selection.objets[0]).find("iff");
+        var mode = $("#" + $(maPage.selection.objets[0]).attr("id") + ">span").attr("mode");
+        $(this).toggleClass("textSelected");
+        if ($(this).hasClass("textSelected")) {
+            $(this).append(' <input type="text" class="text_eleve" style="width:7em">');
+            if (mode != "modif") {
+                $(this).find("input").hide()
+            }
+        } else {
+            $(this).children().last().remove();
+            $(this).removeClass("textSelected");
+        }
+        $iffElement.trigger($(maPage.selection.objets[0]).attr("id") + "corrige");
+    });
+    $("#mccorrige").on("click", "input", function (evt) {
+        evt.stopPropagation()
+    });
+    $("#mccorrige").on("change", "input", function (evt) {
+        evt.stopPropagation();
+        var $iffElement = $(maPage.selection.objets[0]).find("iff");
+        $(this).attr("val", $(this).val());
+        $iffElement.trigger($(maPage.selection.objets[0]).attr("id") + "corrige");
+    });
+    $("#mcNote").on("change", function (evt) {
+        $(maPage.selection.objets[0]).find("note").text($(this).val());
+    });
+    $("#mcPenalite").on("change", function (evt) {
+        $(maPage.selection.objets[0]).find("penalite").text($(this).val());
+    });
+    $("#mcNote").val($(maPage.selection.objets[0]).find("note").text());
+    $("#mcPenalite").val($(maPage.selection.objets[0]).find("penalite").text());
+</script>

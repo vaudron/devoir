@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>UIprof</title>
+    <style type="text/css">
+        #prof {
+            position: relative;
+            width: 480px;
+            height: 670px;
+            border: 1px solid #777;
+            margin-right: 20px;
+            box-shadow: 8px 8px 6px #777;
+        }
+    </style>
+</head>
+
+<body>
+    <style type="text/css">
+        body {
+            margin: 0px;
+        }
+        
+        .imgChoixClasse {
+            position: relative;
+            top: 3px;
+            margin-left: 3px;
+            cursor: pointer;
+        }
+        
+        .imgChoixClasse:hover {
+            transform: scale(1.7);
+        }
+    </style>
+    <div id="menuProf" class="choices-border">
+        <ul>
+            <li><a href="#menuSuivi"><span>Suivi</span></a></li>
+            <li><a href="#menuParametre"><span>Paramètres</span></a></li>
+            <li><a href="#menuEbauche"><span>Ebauche</span></a></li>
+            <li><a href="#menuCorrection"><span>Correction</span></a></li>
+        </ul>
+        <div id="menuSuivi" class="menuProf">
+            <div style="margin-bottom: 5px;">choisissez une classe :
+                <img class="imgChoixClasse" src="https://coursdesciences.fr/devoir/API4/delete16.png" alt="" height="16" width="16">
+                <select id="profClasse" onchange="reload_prof_liste_classe();">
+                </select>
+                <img class="imgChoixClasse btn4AllVuOff" src="https://coursdesciences.fr/devoir/API4/vuOff.png" alt="" height="16" width="16" onclick="">
+                <img class="imgChoixClasse btn4AllVuOn" src="https://coursdesciences.fr/devoir/API4/vuOn.png" alt="" height="16" width="16" onclick="">
+                <img class="imgChoixClasse" src="https://coursdesciences.fr/devoir/API4/reload-16.png" alt="" height="16" width="16" onclick="reload_prof_liste_classe();">
+                <img class="imgChoixClasse btn4AllCorrige" src="https://coursdesciences.fr/devoir/API4/corrige16.png" alt="" height="16" width="16">
+                <img class="imgChoixClasse btn4AllModifableNon" src="https://coursdesciences.fr/devoir/API4/permissions_ferme.png" alt="" height="16" width="16">
+                <img class="imgChoixClasse btn4AllModifableOui" src="https://coursdesciences.fr/devoir/API4/permissions_ouvert.png" alt="" height="16" width="16">
+                <div title="Moyenne de la classe" id="moyenneClasse" style="float:right;font-weight:bold;font-size:1.2em;"> </div>
+            </div>
+            <div id="prof_liste_classe"> </div>
+        </div>
+        <div id="menuParametre" class="menuProf">
+        </div>
+        <div id="menuEbauche" class="menuProf">
+            <span>Gestion des paramètres pour les éléments placés</span>
+        </div>
+        <div id="menuCorrection" class="menuProf">
+            <span>Gestion des paramètres pour la correction</span>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+
+</html>

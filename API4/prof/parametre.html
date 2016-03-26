@@ -1,0 +1,139 @@
+<head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+</head>
+
+<body style="width:450px">
+    <span id="save2" class="CD_btnV" style="display: inline-block; margin-right: 50px;"></span>
+    <h1 style="display: inline-block;">Paramètrage de l'épreuve</h1>
+    <div style="border: 1px solid rgb(153, 153, 153); border-radius: 10px; padding: 10px; position: relative;">
+        <div style="background-color: white; position: absolute; top: -16px; left: 20px; padding: 5px;">Paramètres obligatoires :</div>
+        <div class="case" style="position: relative; top: 5px; left: 5px;">
+            <input id="pEbauche" autocomplete="off" type="checkbox" style="position:relative;top:-1em">
+            <label for="pEbauche"></label><span style="width: 400px; display: inline-block;margin-left:20px">mode ébauche (pas d'identification, l'utilisateur a le profil prof)</span>
+        </div>
+        <div class="" style="position: relative; left: 5px; margin-top: 20px;">
+            <span>Niveau des élèves concernés :</span>
+            <select id="pClasse" style="padding: 0px; background-color: white;" class="text_eleve ">
+                <option value="6">6ième</option>
+                <option value="5">5ième</option>
+                <option value="4">4ième</option>
+                <option value="3">3ième</option>
+            </select>
+        </div>
+        <div style="position: relative; top: 5px; left: 5px;margin-top:30px ">durée de l'épreuve :
+            <div style="display:inline-block;position:relative"><span style="position:absolute;top:-20px;left:20px ">heure</span>
+                <input id="pHeure" type="number" min="0 " class="text_eleve " style="width: 5em;text-align: center;height:1.7em;margin-left:20px; ">
+            </div>
+            <div style="display:inline-block;position:relative"><span style="position:absolute;top:-20px;left:20px ">minute</span>
+                <input id="pMinute" type="number" min="0 " class="text_eleve " style="width: 5em;text-align: center;height:1.7em;margin-left:20px; ">
+            </div>
+            <div style="display:inline-block;position:relative"><span style="position:absolute;top:-20px;left:20px ">seconde</span>
+                <input id="pSeconde" type="number" min="0 " class="text_eleve " style="width: 5em;text-align: center;height:1.7em;margin-left:20px; ">
+            </div>
+        </div>
+    </div>
+    <div style="height:20px "></div>
+    <div style="border: 1px solid rgb(153, 153, 153); border-radius: 10px; padding: 10px; position:relative">
+        <div style="background-color: white; position: absolute; top: -16px; left: 20px; padding: 5px; ">Paramètres optionnels :</div>
+        <div class="case" style="margin-top:10px">
+            <input id="pOrdre" autocomplete="off" type="checkbox">
+            <label for="pOrdre"></label>
+            <span style="margin-left: 40px; width: 400px; display: inline-block;"> Ordre aléatoire des pages</span>
+        </div>
+        <div class="case" style="margin-top:10px">
+            <input id="pViewCorrection" autocomplete="off" type="checkbox">
+            <label for="pViewCorrection"> </label>
+            <span style="margin-left: 40px;width: 400px; display: inline-block;">Permettre à l'élève de voir la correction juste après avoir envoyé l'épreuve</span>
+        </div>
+        <div class="case" style="margin-top:10px">
+            <input id="pMulti" autocomplete="off" type="checkbox">
+            <label for="pMulti"></label>
+            <span style="margin-left: 40px; width: 400px; display: inline-block;"> L'épreuve peut-être réalisée en plusieurs fois</span>
+        </div>
+
+    </div>
+    <script>
+        if (modeEbauche) {
+            $("#pEbauche").prop("checked", true);
+        }
+        if (premiereEssaiCorrectionVisible) {
+            $("#pViewCorrection").prop("checked", true);
+        }
+        if (orderQuestions) {
+            $("#pOrdre").prop("checked", true);
+        }
+        if (multiSoumission) {
+            $("#pMulti").prop("checked", true);
+        }
+        $("#pHeure").val(heure);
+        $("#pMinute").val(minute);
+        $("#pSeconde").val(seconde);
+        $("#pClasse").val(typeClasse);
+        $("#pEbauche").on("change", function (evt) {
+            modeEbauche = (($(this).is(":checked")) ? true : false);
+            dvSetParams("modeEbauche");
+        });
+        $("#pViewCorrection").on("change", function (evt) {
+            premiereEssaiCorrectionVisible = ($(this).is(":checked")) ? true : false;
+            dvSetParams("premiereEssaiCorrectionVisible");
+        });
+        $("#pOrdre").on("change", function (evt) {
+            orderQuestions = ($(this).is(":checked")) ? true : false;
+            dvSetParams("orderQuestions");
+        });
+        $("#pHeure").on("change", function (evt) {
+            heure = $(this).val();
+            dvSetParams("heure");
+        });
+        $("#pMinute").on("change", function (evt) {
+            minute = $(this).val();
+            dvSetParams("minute");
+        });
+        $("#pSeconde").on("change", function (evt) {
+            seconde = $(this).val();
+            dvSetParams("seconde");
+        });
+        $("#pMulti").on("change", function (evt) {
+            multiSoumission = ($(this).is(":checked")) ? true : false;
+            dvSetParams("multi");
+        });
+        $("#pClasse").on("change", function (evt) {
+            typeClasse = $(this).val();
+            dvSetParams("classe");
+        });
+
+        function dvSetParams(variable) {
+            switch (variable) {
+            case "modeEbauche":
+                paramText = paramText.replace(/modeEbauche *=[\w\d ]*;/, "modeEbauche = " + modeEbauche + ";");
+                break;
+            case "premiereEssaiCorrectionVisible":
+                paramText = paramText.replace(/premiereEssaiCorrectionVisible *=[\w\d ]*;/, "premiereEssaiCorrectionVisible = " + premiereEssaiCorrectionVisible + ";");
+                break;
+            case "orderQuestions":
+                paramText = paramText.replace(/orderQuestions *=[\w\d ]*;/, "orderQuestions = " + orderQuestions + ";");
+                break;
+            case "heure":
+                paramText = paramText.replace(/heure *=[\w\d ]*;/, "heure = " + heure + ";");
+                break;
+            case "minute":
+                paramText = paramText.replace(/minute *=[\w\d ]*;/, "minute = " + minute + ";");
+                break;
+            case "seconde":
+                paramText = paramText.replace(/seconde *=[\w\d ]*;/, "seconde = " + seconde + ";");
+                break;
+            case "seconde":
+                paramText = paramText.replace(/seconde *=[\w\d ]*;/, "seconde = " + seconde + ";");
+                break;
+            case "multi":
+                paramText = paramText.replace(/multiSoumission *=[\w\d ]*;/, "multiSoumission = " + multiSoumission + ";");
+                break;
+            case "classe":
+                setClasseHtml();
+                paramText = paramText.replace(/typeClasse *=[\w\d ]*;/, "typeClasse = " + typeClasse + ";");
+                break;
+            }
+        }
+    </script>
+
+</body>

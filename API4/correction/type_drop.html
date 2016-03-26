@@ -1,0 +1,67 @@
+<h1>Correction de la zone de dépôt</h1>
+<div style="border: 1px solid rgb(153, 153, 153); border-radius: 10px; padding: 10px; position: relative;">
+    <div style="background-color: white; position: absolute; top: -16px; left: 20px; padding: 5px;">Sélectionner les éléments attendus dans la zone de dépôt :</div>
+    <div class="" style="">
+        <select id="mcDrags" multiple="" name="mcDrags" style="height: 300px; padding: 10px; margin: 5px;" class="text_eleve">
+        </select>
+    </div>
+
+    <div style="left: 160px; top: 1.5em; position: absolute;"> note :
+        <input id="mcNote" type="number" step="0.1" min="0" class="text_eleve" style="width: 5em;text-align: center;height:2em;">
+    </div>
+</div>
+<div>
+    <span style="width: 220px; display: inline-block;">Commentaire en cas de réponse fausse</span>
+    <select id="mcComment" style="color:black;border-radius: 7px;background-color: white;float: right;margin-top:10px;"></select>
+</div>
+<script>
+    //fonctionnalité de la sélection du commentaire
+    var html = '<option value="" >Choisir le commentaire ...<\/option>';
+    $("#page .commentaire").each(function (i) {
+        html += '<option value="' + $(this).attr("id") + '" >' + $(this).attr("id") + '<\/option>'
+    });
+    $("#mcComment").html(html);
+    $("#mcComment option").on("mouseenter", function (evt) {
+        var id = $(this).attr("value");
+        $("#" + id).addClass("partiel");
+    });
+    $("#mcComment option").on("mouseleave", function (evt) {
+        var id = $(this).attr("value");
+        $("#" + id).removeClass("partiel");
+    });
+    $("#mcComment").on("change", function (evt) {
+        var txt = $(this).val();
+        $(maPage.selection.objets[0]).find("comment").text(txt);
+        $("#page .incorrect").removeClass("incorrect");
+        $("#" + txt).addClass("incorrect");
+        corrige.setCode("drop");
+    });
+    $("#menuCorrection #mcNote").on("change", function (evt) {
+        var $obj = maPage.selection.objets[0];
+        $($obj).find("note").text("" + $(this).val());
+        corrige.setCode("drop");
+    });
+    html = "";
+    $("#page .dvDrag").each(function (i) {
+        html += '<option value="' + $(this).attr("id") + '" >' + $(this).attr("id") + '<\/option>'
+    });
+    $("#mcDrags").html(html);
+    $("#mcDrags option").on("mouseenter", function (evt) {
+        var id = $(this).attr("value");
+        $("#" + id).addClass("partiel");
+    });
+    $("#mcDrags option").on("mouseleave", function (evt) {
+        var id = $(this).attr("value");
+        $("#" + id).removeClass("partiel");
+    });
+    $("#mcDrags").on("change", function (evt) {
+        var txt = $(this).val() + "";
+        $(maPage.selection.objets[0]).find("if").text(txt);
+        $("#page .dvDrag").removeClass("correct");
+        var tab = txt.split(",");
+        for (var t = 0; t < tab.length; t++) {
+            $("#" + tab[t]).addClass("correct");
+        }
+        corrige.setCode("drop");
+    });
+</script>
