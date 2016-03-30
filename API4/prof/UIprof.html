@@ -40,18 +40,20 @@
             <li><a href="#menuCorrection"><span>Correction</span></a></li>
         </ul>
         <div id="menuSuivi" class="menuProf">
-            <div style="margin-bottom: 5px;">choisissez une classe :
-                <img class="imgChoixClasse" src="https://coursdesciences.fr/devoir/API4/delete16.png" alt="" height="16" width="16">
-                <select id="profClasse" onchange="reload_prof_liste_classe();">
-                </select>
-                <img class="imgChoixClasse btn4AllVuOff" src="https://coursdesciences.fr/devoir/API4/vuOff.png" alt="" height="16" width="16" onclick="">
-                <img class="imgChoixClasse btn4AllVuOn" src="https://coursdesciences.fr/devoir/API4/vuOn.png" alt="" height="16" width="16" onclick="">
-                <img class="imgChoixClasse" src="https://coursdesciences.fr/devoir/API4/reload-16.png" alt="" height="16" width="16" onclick="reload_prof_liste_classe();">
-                <img class="imgChoixClasse btn4AllCorrige" src="https://coursdesciences.fr/devoir/API4/corrige16.png" alt="" height="16" width="16">
-                <img class="imgChoixClasse btn4AllModifableNon" src="https://coursdesciences.fr/devoir/API4/permissions_ferme.png" alt="" height="16" width="16">
-                <img class="imgChoixClasse btn4AllModifableOui" src="https://coursdesciences.fr/devoir/API4/permissions_ouvert.png" alt="" height="16" width="16">
-                <div title="Moyenne de la classe" id="moyenneClasse" style="float:right;font-weight:bold;font-size:1.2em;"> </div>
+            <div id="dvTempUIprof" style="margin-bottom: 5px;">choisissez une classe :
             </div>
+            <script>
+                var temp = '<img class="imgChoixClasse" src="'+site+API+'/img/delete16.png" alt="" height="16" width="16">';
+                temp += '<select id="profClasse" onchange="reload_prof_liste_classe();"></select>';
+                temp +='<img class="imgChoixClasse btn4AllVuOff" src="'+site+API+'/img/vuOff.png" alt="" height="16" width="16" onclick="">';
+                temp += '<img class="imgChoixClasse btn4AllVuOn" src="'+site+API+'/img/vuOn.png" alt="" height="16" width="16" onclick="">';
+                temp += '<img class="imgChoixClasse" src="'+site+API+'/img/reload-16.png" alt="" height="16" width="16" onclick="reload_prof_liste_classe();">';
+                temp += '<img class="imgChoixClasse btn4AllCorrige" src="'+site+API+'/img/corrige16.png" alt="" height="16" width="16">';
+                temp += '<img class="imgChoixClasse btn4AllModifableNon" src="'+site+API+'/img/permissions_ferme.png" alt="" height="16" width="16">';
+                temp += '<img class="imgChoixClasse btn4AllModifableOui" src="'+site+API+'/img/permissions_ouvert.png" alt="" height="16" width="16">';
+                temp += '<div title="Moyenne de la classe" id="moyenneClasse" style="float:right;font-weight:bold;font-size:1.2em;"> </div>';
+                $("#dvTempUIprof").append(temp);
+            </script>
             <div id="prof_liste_classe"> </div>
         </div>
         <div id="menuParametre" class="menuProf">

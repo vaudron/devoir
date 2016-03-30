@@ -19,7 +19,7 @@ var Correction = function (ebauche) {
                 var manuel = $("#" + id).find("manuel").text();
                 $.ajax({
                     async: false,
-                    url: "/devoir/API4/correction/type_text.html",
+                    url: site+API+"/correction/type_text.html",
                     dataType: "html",
                     success: function (data) {
                         $("#menuCorrection").html(data);
@@ -65,7 +65,7 @@ var Correction = function (ebauche) {
                 var code = $("#" + id).find("code").text();
                 $.ajax({
                     async: false,
-                    url: "/devoir/API4/correction/type_case.html",
+                    url: site+API+"/correction/type_case.html",
                     dataType: "html",
                     success: function (data) {
                         $("#menuCorrection").html(data);
@@ -93,7 +93,7 @@ var Correction = function (ebauche) {
                 var code = $("#" + id).find("code").text();
                 $.ajax({
                     async: false,
-                    url: "/devoir/API4/correction/type_radio.html",
+                    url: site+API+"/correction/type_radio.html",
                     dataType: "html",
                     success: function (data) {
                         $("#menuCorrection").html(data);
@@ -122,7 +122,7 @@ var Correction = function (ebauche) {
                 var code = $("#" + id).find("code").text();
                 $.ajax({
                     async: false,
-                    url: "/devoir/API4/correction/type_drop.html",
+                    url: site+API+"/correction/type_drop.html",
                     dataType: "html",
                     success: function (data) {
                         $("#menuCorrection").html(data);
@@ -141,7 +141,7 @@ var Correction = function (ebauche) {
 
                 $.ajax({
                     async: false,
-                    url: "/devoir/API4/correction/type_txt_selectable.html",
+                    url: site+API+"/correction/type_txt_selectable.html",
                     dataType: "html",
                     success: function (data) {
                         $("#menuCorrection").html(data);

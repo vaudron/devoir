@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: text/html; charset=utf-8");
 $devoir_ID=$_GET["devoirID"];
 try {
-		include '../dbHost.php';
+		include '../php/dbHost.php';
 		$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		//existe-il déjà un enregistrement du devoir ?
 		$result=$connexion->query("SELECT DISTINCT `valeur` FROM `devoir` Where `element`='classe' AND `devoirID`='".$devoir_ID."'  ORDER BY `valeur` ASC");

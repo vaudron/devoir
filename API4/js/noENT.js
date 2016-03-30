@@ -2,7 +2,7 @@ var nom = "";
 var prenom = "";
 var devoirID = document.getElementById("devoirID").value;
 var userID = "";
-var site = "";
+var site = "https://coursdesciences.fr";
 
 function setIdentite() {
     return false;

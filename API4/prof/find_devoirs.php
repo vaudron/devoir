@@ -12,7 +12,7 @@ $liste_classe= array();
 $somme=0;
 $nbDevoir=0;
 try {
-		include '../dbHost.php';
+		include '../php/dbHost.php';
 		$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		//existe-il déjà un enregistrement du devoir ?
 		$result=$connexion->query("SELECT DISTINCT `userID`,`valeur` FROM `devoir` Where ((`element`='classe' AND `valeur`='".$classe."')OR `element`='nom') AND `devoirID`='".$devoir_ID."' ORDER BY UPPER(`valeur`) ASC");

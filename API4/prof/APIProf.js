@@ -3,7 +3,7 @@ function reload_prof_liste_classe(){
 	var classe=$("#profClasse option:selected").val();
 	$.ajax({
 		async: false,
-		url: site+"/devoir/API4/prof/find_devoirs.php",
+		url: site+API+"/prof/find_devoirs.php",
 		data: "devoirID="+devoirID+"&classe="+classe,
 		method: "GET",
 		dataType: "html",
@@ -22,7 +22,7 @@ function supprime_devoir(userID){
 	if(confirm("confirmez-vous la suppression de ce devoir ?")){
 		$.ajax({
 			async: false,
-			url: site+"/devoir/API4/prof/supp_devoir.php",
+			url: site+API+"/prof/supp_devoir.php",
 			data: "userID="+userID,
 			method: "GET",
 			dataType: "html",
@@ -44,7 +44,7 @@ function recorrection(userID, devoirID){
 	var dv_data="userID="+userID+"&devoirID="+devoirID+"&note="+note;
 	$.ajax({
 		async: false,
-		url: site+"/devoir/API4/prof/saveNote.php",
+		url: site+API+"/prof/saveNote.php",
 		data: dv_data,
 		method: "GET",
 		dataType: "text",
@@ -60,7 +60,7 @@ function recorrection(userID, devoirID){
 function searchDataDevoir(userID, devoirID){
 	$.ajax({
 		async: false,
-		url: site+"/devoir/API4/isResponse.php",		
+		url: site+API+"/php/isResponse.php",		
 		method: "POST",
 		data: "userID="+userID+"&devoirID="+devoirID,
 		dataType: "text",

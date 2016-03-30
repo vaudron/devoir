@@ -47,7 +47,7 @@ function sendDS() {
     revoirDs = true;
     $.ajax({
         async: false,
-        url: site + "/devoir/API4/isPropertie.php",
+        url: site + API + "/php/isPropertie.php",
         data: "devoirID=" + $("#devoirID").val() + "&userID=" + userID + "&nom=correctionVisible&valeur=oui",
         dataType: "html",
         success: function (data) {
@@ -64,7 +64,7 @@ function sendDS() {
     }
     var dv_data = searchDataInDS();
     xhr = getXMLHttpRequest();
-    xhr.open("POST", site + "/devoir/API4/saveDS.php", false);
+    xhr.open("POST", site + API + "/php/saveDS.php", false);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //		xhr.setRequestHeader("Content-length", dv_data.length);
     xhr.onload = function () {
@@ -287,7 +287,7 @@ function setColorEleveSelectionne(element) {
 function setPropertie(devoirID, userID, param, valeur) {
     $.ajax({
         async: false,
-        url: site + "/devoir/API4/setPropertie.php",
+        url: site + API + "/php/setPropertie.php",
         data: "devoirID=" + devoirID + "&userID=" + userID + "&nom=" + param + "&valeur=" + valeur,
         dataType: "html",
         success: function (data) {}
@@ -816,7 +816,7 @@ function eventEvaluateManuel(ev) {
         var id = ev.target.id;
         $.ajax({
             async: false,
-            url: site + "/devoir/API4/prof/evaluateManuel.php",
+            url: site + API + "/prof/evaluateManuel.php",
             data: "devoirID=" + $("#devoirID").val() + "&userID=" + $("#userID").val() + "&element=" + id + "&valeur=" + etat,
             dataType: "html",
             success: function (data) {
@@ -913,7 +913,7 @@ function alreadyResponse(dv_data, continuer) {
         xhr.abort(); // On annule la requête en cours !
     }
     xhr = getXMLHttpRequest();
-    xhr.open("POST", site + "/devoir/API4/isResponse.php", continuer);
+    xhr.open("POST", site + API + "/php/isResponse.php", continuer);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //	xhr.setRequestHeader("Content-length", dv_data.length);
     xhr.onload = function () {
@@ -936,7 +936,7 @@ function ajax_load_svg() {
         var element = $(this).parent().attr("id");
         $.ajax({
             async: false,
-            url: site + "/devoir/API4/loadSVG.php",
+            url: site+API+"/php/loadSVG.php",
             data: "fichier=" + fichier,
             dataType: "xml",
             success: function (data) {
@@ -951,7 +951,7 @@ function ajax_load_svg() {
 function ajax_loader(fichier, element) {
     $.ajax({
         async: false,
-        url: site + "/devoir/API4/loadSVG.php",
+        url: site+API+"/php/loadSVG.php",
         data: "fichier=" + fichier,
         dataType: "xml",
         success: function (data) {
@@ -965,7 +965,7 @@ function ajax_loader(fichier, element) {
 function ajax_loader_question() {
     $.ajax({
         async: false,
-        url: site + "/devoir/API4/loadQuestion.php",
+        url: site+API+"/php/loadQuestion.php",
         data: "fichier=" + chemin + "questions.html",
         dataType: "html",
         success: function (data) {
@@ -1048,7 +1048,7 @@ function afficheQuestion(num) {
             }
             $.ajax({
                 async: false,
-                url: site + "/devoir/API4/setPropertie.php",
+                url: site + API + "/php/setPropertie.php",
                 data: "devoirID=" + $("devoirID").val() + "&userID=" + $("userID").val() + "&nom=modifiable&valeur=oui",
                 dataType: "html",
                 success: function (data) {}
@@ -1248,7 +1248,7 @@ function initDevoir(responseData) {
         document.getElementById("date").disabled = true;
         $.ajax({
             async: false,
-            url: site + "/devoir/API4/isPropertie.php",
+            url: site + API + "/php/isPropertie.php",
             data: "devoirID=" + $("#devoirID").val() + "&userID=" + userID + "&nom=modifiable&valeur=oui",
             dataType: "html",
             success: function (data) {
@@ -1278,7 +1278,7 @@ function initDevoir(responseData) {
                     // modifier ici pour que la correction ne s'affiche que si correctionVisible est à oui 
                     $.ajax({
                         async: false,
-                        url: site + "/devoir/API4/isPropertie.php",
+                        url: site + API + "/php/isPropertie.php",
                         data: "devoirID=" + $("#devoirID").val() + "&userID=" + userID + "&nom=correctionVisible&valeur=oui",
                         dataType: "html",
                         success: function (data) {
@@ -1351,14 +1351,14 @@ function initDevoir(responseData) {
         }
         $.ajax({
             async: false,
-            url: site + "/devoir/API4/setPropertie.php",
+            url: site + API + "/php/setPropertie.php",
             data: "devoirID=" + $("#devoirID").val() + "&userID=" + $("#userID").val() + "&nom=modifiable&valeur=" + ((devoirModifiable) ? "oui" : "non"),
             dataType: "html",
             success: function (data) {}
         });
         $.ajax({
             async: false,
-            url: site + "/devoir/API4/setPropertie.php",
+            url: site + API + "/php/setPropertie.php",
             data: "devoirID=" + $("#devoirID").val() + "&userID=" + $("#userID").val() + "&nom=correctionVisible&valeur=" + ((premiereEssaiCorrectionVisible) ? "oui" : "non"),
             dataType: "html",
             success: function (data) {}
@@ -1380,7 +1380,7 @@ function initDevoir(responseData) {
             }
             $.ajax({
                 async: false,
-                url: site + "/devoir/API4/setPropertie.php",
+                url: site + API + "/php/setPropertie.php",
                 data: "devoirID=" + $("#devoirID").val() + "&userID=" + $("#userID").val() + "&nom=correctionVisible&valeur=" + etat,
                 dataType: "html",
                 success: function (data) {}
@@ -1397,7 +1397,7 @@ function initDevoir(responseData) {
 function setUIProf() {
     $.ajax({
         async: false,
-        url: "https://coursdesciences.fr/devoir/API4/prof/outilsProf.html",
+        url: site+API+"/prof/outilsProf.html",
         dataType: "html",
         success: function (data) {
             $("#outilsProf").html(data);
@@ -1406,8 +1406,8 @@ function setUIProf() {
     //$("#outilsProf").load("https://coursdesciences.fr/devoir/API4/prof/outilsProf.html");
     $.ajax({
         async: false,
-        url: site + "/devoir/API4/loadQuestion.php",
-        data: "fichier=prof/UIprof.html",
+        url: site + API + "/php/loadQuestion.php",
+        data: "fichier=../prof/UIprof.html",
         dataType: "html",
         success: function (data) {
             var toto = /\<body\>([\s\S]*?)\<\/body\>/i;
@@ -1420,8 +1420,8 @@ function setUIProf() {
     maPage.init('question0');
     $.ajax({
         async: false,
-        url: site + "/devoir/API4/loadQuestion.php",
-        data: "fichier=prof/parametre.html",
+        url: site + API + "/php/loadQuestion.php",
+        data: "fichier=../prof/parametre.html",
         dataType: "html",
         success: function (data) {
             var toto = /\<body.*\>([\s\S]*?)\<\/body\>/i;
@@ -1570,7 +1570,7 @@ function setUIProf() {
     var devoirID = document.getElementById("devoirID").value;
     $.ajax({
         async: false,
-        url: site + "/devoir/API4/prof/find_classes.php",
+        url: site + API + "/prof/find_classes.php",
         data: "devoirID=" + devoirID,
         method: "GET",
         dataType: "html",
@@ -1581,7 +1581,7 @@ function setUIProf() {
     $('#prof').show();
     $.ajax({
         async: false,
-        url: site + "/devoir/API4/prof/find_devoirs.php",
+        url: site + API + "/prof/find_devoirs.php",
         data: "devoirID=" + devoirID + "&classe=" + $("#profClasse option:selected").val(),
         method: "GET",
         dataType: "html",
