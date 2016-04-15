@@ -2,7 +2,11 @@ var nom="";
 var prenom="";
 var devoirID=document.getElementById("devoirID").value;
 var userID=0;
+var dvCoursID="";
 var site="https://coursdesciences.fr";
+var API="/devoirTest/API4";
+var siteENT="https://leducdenormandie.itslearning.com/data/2362/446602";
+var APIENT=" \ devoir \ API";
 
 function setIdentite(){
 	var dv=GetCookie ("dv");
@@ -39,9 +43,22 @@ function setVariables(){
 	nom=dv_split[0];
 	prenom=dv_split[1];
 	userID=dv_split[2];
+	dvCoursID=dv_split[4];
 	setIdentite();
+	//var dv_data="devoirID="+devoirID+"&userID="+dv_split[2];
+}
+function initVariables(){
+	var dv=GetCookie ("dv");
+	var dv_split=dv.split(";");
+	statu = dv_split[3];
+	//var data_response="";
+	nom=dv_split[0];
+	prenom=dv_split[1];
+	userID=dv_split[2];
+	dvCoursID=dv_split[4];
 	//var dv_data="devoirID="+devoirID+"&userID="+dv_split[2];
 }
 function dv_data(){
 	return "devoirID="+devoirID+"&userID="+userID;
 }
+initVariables();

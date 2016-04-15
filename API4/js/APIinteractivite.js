@@ -928,10 +928,10 @@ function alreadyResponse(dv_data, continuer) {
 
 function ajax_load_svg() {
 
-    //ajax_loader("entete_devoir2.svg", "entete2");
-    //ajax_loader("entete_devoir.svg", "entete_devoir");
+    ajax_loader("entete_devoir2.svg", "entete2");
+    ajax_loader("entete_devoir.svg", "entete_devoir");
     //rechercher les classe .loadSVG pour y mettre le svg
-    $(".loadSVG").each(function (index) {
+    $(".loadSVG").each(function (index) { 
         var fichier = $(this).attr("nomFichier");
         var element = $(this).parent().attr("id");
         $.ajax({
@@ -946,6 +946,7 @@ function ajax_load_svg() {
             }
         });
     });
+    
 }
 
 function ajax_loader(fichier, element) {
@@ -963,10 +964,19 @@ function ajax_loader(fichier, element) {
 }
 
 function ajax_loader_question() {
-    $.ajax({
+
+    var cheminDossier = location.pathname; //.replace(/\//g,"%5C");
+        var myRegExp= new RegExp(dvCoursID+"/(.*)$");
+        myRegExp.exec(cheminDossier);
+        cheminDossier = RegExp.$1;
+        var cheminTab=cheminDossier.split("/");
+        cheminTab.pop();
+        //cheminTab.unshift("\\");
+        cheminDossier="/"+cheminTab.join("/");
+            $.ajax({
         async: false,
         url: site+API+"/php/loadQuestion.php",
-        data: "fichier=" + chemin + "questions.html",
+        data: "fichier=../../../ressources/" + dvCoursID + cheminDossier + "/questions.html",
         dataType: "html",
         success: function (data) {
             if (data != "") {
@@ -975,6 +985,17 @@ function ajax_loader_question() {
         }
     });
 
+    /*$.ajax({
+        async: false,
+        url: site + "/ressources/" + dvCoursID + cheminDossier + "/questions.html",
+        dataType: "html",
+        success: function (data) {
+            if (data != "") {
+                $("#questions").html(data);
+            }
+        }
+    });
+*/
 }
 
 function init() {
@@ -1029,7 +1050,7 @@ function initOrderQuestions(pages) {
 
 function init_nav_bar(nbQ) {
     var txt_html = "";
-    for (var i = 1; i < nbQ + 1; i++) {
+    for (var i = 0; i < nbQ + 1; i++) {
         txt_html = '<span class="bouton" id="bouton' + i + '" onclick="afficheQuestion(' + i + ')"> </span>';
         $(txt_html).appendTo($('#menu'));
         $("#questions [id*=question]").hide();
@@ -1397,7 +1418,8 @@ function initDevoir(responseData) {
 function setUIProf() {
     $.ajax({
         async: false,
-        url: site+API+"/prof/outilsProf.html",
+        url: site + API + "/php/loadQuestion.php",
+        data: "fichier=../prof/outilsProf.html",
         dataType: "html",
         success: function (data) {
             $("#outilsProf").html(data);

@@ -9,13 +9,24 @@ $port      = $_SERVER['SERVER_PORT'];
 $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port";
 $domain    = $_SERVER['SERVER_NAME'];
 $full_url  = "${protocol}://${domain}${disp_port}${base_url}"; # Ex: 'http://example.com', 'https://example.com/mywebsite', etc.
-$pathName = $_POST["path"];
+$pathName = "\/ressources/".$_POST["path"];
 $code=$_POST["code"];
 $tab=split("/",$pathName);
 $temp=$doc_root.'/';
-for($t=1;$t<sizeof($tab)-1;$t++){
+for($t=1;$t<sizeof($tab);$t++){
 $temp=$temp.$tab[$t].'/';
 }
+//echo $temp;
+/** 
+ * recursively create a long directory path
+ */
+function createPath($path) {
+    if (is_dir($path)) return true;
+    $prev_path = substr($path, 0, strrpos($path, '/', -2) + 1 );
+    $return = createPath($prev_path);
+    return ($return && is_writable($prev_path)) ? mkdir($path) : false;
+}
+createPath($temp);
 $tableau=[];
 $pointeur=opendir($temp);
 while ($entree = readdir($pointeur)) {
@@ -50,7 +61,7 @@ $prefix='00';
 }
 //echo $prefix;
 //echo "<br>";
-rename("".$temp."questions.html","".$temp."questions".$prefix.$longueur.".html");
+@rename("".$temp."questions.html","".$temp."questions".$prefix.$longueur.".html");
 //echo "".$temp."questions".$prefix.$longueur.".html";
 //echo "<br>";
 $nom_fichier = "".$temp."questions.html";
