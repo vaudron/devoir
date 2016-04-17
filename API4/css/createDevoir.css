@@ -201,7 +201,7 @@
  }
  
  #baliseDiv {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 224px;
  }
  
@@ -217,12 +217,12 @@
  }
  
  #addChekbox {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 128px;
  }
  
  #addRadio {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 96px;
  }
  
@@ -235,7 +235,7 @@
  }
  
  #addInputText {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 64px;
  }
  
@@ -244,7 +244,7 @@
  }
  
  #addTextarea {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 32px;
  }
  
@@ -257,7 +257,7 @@
  }
  
  #modEbauche {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 512px;
  }
  
@@ -267,7 +267,7 @@
  }
  
  #deselected {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 160px;
  }
  
@@ -276,7 +276,7 @@
  }
  
  #leftAlign {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 480px;
  }
  
@@ -285,7 +285,7 @@
  }
  
  #rightAlign {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 448px;
  }
  
@@ -294,7 +294,7 @@
  }
  
  #bottomAlign {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 416px;
  }
  
@@ -303,7 +303,7 @@
  }
  
  #topAlign {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 384px;
  }
  
@@ -312,12 +312,12 @@
  }
  
  #verticalAjust {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 256px;
  }
  
  #horizontalAjust {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 288px;
  }
  
@@ -339,7 +339,7 @@
  
  #save,
  #save2 {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 546px;
  }
  
@@ -349,7 +349,7 @@
  }
  
  #open {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 578px;
  }
  
@@ -373,7 +373,7 @@
  }
  
  #addManuel {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 608px;
  }
  
@@ -387,7 +387,7 @@
  }
  
  #addZoneNote {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 640px;
  }
  
@@ -440,7 +440,7 @@
  }
  
  #addImage {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 672px;
  }
  
@@ -449,7 +449,7 @@
  }
  
  #addCommentaire {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 802px;
  }
  
@@ -458,7 +458,7 @@
  }
  
  #layerUp {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 704px;
  }
  
@@ -467,7 +467,7 @@
  }
  
  #layerDown {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 736px;
  }
  
@@ -511,7 +511,7 @@
  }
  
  #addQuestion {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 768px;
  }
  
@@ -531,7 +531,7 @@
  }
  
  #addDrop {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 834px;
  }
  
@@ -540,7 +540,7 @@
  }
  
  #addDrag {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 866px;
  }
  
@@ -549,7 +549,7 @@
  }
  
  #addTextSelectable {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 898px;
  }
  
@@ -558,7 +558,7 @@
  }
  
  #addDialog {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 930px;
  }
  
@@ -567,7 +567,7 @@
  }
  
  #addMathAnswer {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 962px;
  }
  
@@ -576,7 +576,7 @@
  }
  
  #repere {
-     background-image: url("../../createDevoir/img/iconsdv.png");
+     background-image: url("img/iconsdv.png");
      background-position: 32px 994px;
  }
  
@@ -594,7 +594,7 @@
  }
  
  div.dvDialog.construction::before {
-     content: url("../../createDevoir/img/Pencil.png");
+     content: url("img/Pencil.png");
      width: 20px;
      height: 20px;
      position: relative;
