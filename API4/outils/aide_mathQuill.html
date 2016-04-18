@@ -1,0 +1,71 @@
+<style>
+    td {
+        text-align: center;
+    }
+</style>
+<div style="width:400px;">
+    <table style="border-collapse: separate; border-spacing: 1px;" border="1" cellpadding="1">
+        <tbody>
+            <tr>
+                <td style="padding: 1px; text-align: center;">intitulé</td>
+                <td style="padding: 1px; text-align: center;">code</td>
+                <td style="padding: 1px; text-align: center;">rendu</td>
+            </tr>
+            <tr>
+                <td style="padding: 1px;">exposant</td>
+                <td style="padding: 1px; text-align: center;">^</td>
+                <td class="dvMath" style="padding: 1px; text-align: center;width:100%;">x^3</td>
+            </tr>
+            <tr>
+                <td style="padding: 1px;">indice</td>
+                <td style="padding: 1px; text-align: center;">_</td>
+                <td class="dvMath" style="padding: 1px; text-align: center;width:100%;">x_3</td>
+            </tr>
+            <tr>
+                <td style="padding: 1px;">différent</td>
+                <td style="padding: 1px; text-align: center;">\ne</td>
+                <td class="dvMath" style="padding: 1px; text-align: center;width:100%;">\ne</td>
+            </tr>
+            <tr>
+                <td style="padding: 1px;">racine carré</td>
+                <td style="padding: 1px; text-align: center;">\sqrt</td>
+                <td class="dvMath" style="padding: 1px; text-align: center;width:100%;">\sqrt{x}</td>
+            </tr>
+            <tr>
+                <td style="padding: 1px;">vecteur</td>
+                <td style="padding: 1px; text-align: center;">\vec</td>
+                <td class="dvMath" style="padding: 1px; text-align: center;width:100%;">\vec{x}</td>
+            </tr>
+            <tr>
+                <td style="padding: 1px;">bloc de text</td>
+                <td style="padding: 1px; text-align: center;">\text</td>
+                <td class="dvMath" style="padding: 1px; text-align: center;width:100%;">\text{portion au format texte}</td>
+            </tr>
+            <tr>
+                <td style="padding: 1px;">flèche</td>
+                <td style="padding: 1px; text-align: center;">\to</td>
+                <td class="dvMath" style="padding: 1px; text-align: center;width:100%;">\to</td>
+            </tr>
+            <tr>
+                <td style="padding: 1px;">infini</td>
+                <td style="padding: 1px; text-align: center;">\inf</td>
+                <td class="dvMath" style="padding: 1px; text-align: center;width:100%;">\infinity
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 1px;">pi</td>
+                <td style="padding: 1px; text-align: center;">\pi</td>
+                <td class="dvMath" style="padding: 1px; text-align: center;width:100%;">\pi</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="http://math.chapman.edu/~jipsen/mathquill/test/test.html" target="_blank" data-cke-saved-href="http://math.chapman.edu/~jipsen/mathquill/test/test.html" style="color:blue;">voir la liste complète</a>
+    <br>
+</div>
+<script>
+    var dvMQ = MathQuill.getInterface(2);
+    $("#aide .dvMath").each(function (i) {
+        dvMQ.StaticMath(this)
+    });
+</script>

@@ -1,0 +1,7 @@
+<script src="https://cdn.itslearning.com/v3.54.0.41/javascript/jQuery/jquery-1.7.1/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script>
+$.get("https://leducdenormandie.itslearning.com/FileExplorer/BrowseFiles.aspx",
+{PopUp:"",Function:"0",GenerateAbsolutePath:"False",Page:"-1",Type:"4",Course:"44382"},function (data){
+	$(data).find('.ccl-filelink a').each(function(){console.log($(this).attr("href"))})
+});
+</script>

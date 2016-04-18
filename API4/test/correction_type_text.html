@@ -1,0 +1,184 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <style>
+        #menuCorrection .contenu {
+            width: 460px;
+            height: 600px;
+            background-color: antiquewhite;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        #menuCorrection .etape {
+            position: relative;
+            height: 150px;
+        }
+        
+        #menuCorrection .param {
+            position: absolute;
+            top: 25px;
+            left: 150px;
+            background-color: white;
+            width: 250;
+            height: 100px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 4px #999;
+            padding: 5px;
+        }
+        
+        #menuCorrection .param textarea {
+            width: 130px;
+        }
+        
+        #menuCorrection .contenu p {
+            margin: 0px;
+        }
+        
+        #menuCorrection #mcTriable:hover {
+            cursor: move;
+        }
+        
+        #menuCorrection .sup {
+            position: absolute;
+            top: 30px;
+            left: 415;
+        }
+        
+        #menuCorrection #mcAdd {
+            position: relative;
+            transform: scale(0.7);
+            top: -150;
+            width: 32px;
+            left: 70px;
+        }
+        
+        #menuCorrection .test {
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+            top: -110px;
+            left: 5px;
+            text-align: center;
+            width: 75px;
+            height: 50px;
+            padding-top: 20;
+        }
+        
+        #menuCorrection .test:hover {
+            cursor: pointer;
+        }
+        
+        #menuCorrection .vert {
+            color: green;
+        }
+        
+        #menuCorrection .rouge {
+            color: red;
+        }
+        
+        #menuCorrection .reg {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            z-index: 100;
+        }
+        
+        #menuCorrection .regExp {
+            width: 300px;
+            height: 70px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 4px #999;
+        }
+        
+        #menuCorrection .reg span {
+            position: absolute;
+            top: -21px;
+            left: 20px;
+            background-color: white;
+            padding: 0px 5px;
+            border-radius: 5px;
+            border: 1px solid #999;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menuCorrection">
+        <div class="Contenu">
+            <span>barème : </span>
+            <input style="width:50px;text-align:center" type="text" id="mcBareme" class="text_eleve"><span> nombre de points attribués à la réponse.</span>
+            <div class="etape"><img src="algoDebut.svg">
+                <div id="test0" class="test rouge">?</div>
+                <div id="mcReg0" class="reg"><span>Expression régulière</span>
+                    <textarea id="mcRegExp0" class="regExp">//i</textarea>
+                </div>
+            </div>
+            <div id="mcTriable">
+            </div>
+            <div class=""><img src="algoFin.svg">
+                <div id="mcAdd"><img src="https://coursdesciences.fr/devoir/API4/img/Add.png"></div>
+            </div>
+            <script>
+                $("#mcTriable").sortable({
+                    axis: "y",
+                    containment: "#mcTriable",
+                    tolerance: "pointer",
+                    stop: function (event) {
+                        corrige.setCode();
+                    }
+                });
+                $("#menuCorrection").delegate(".test", "mouseenter", function (event) {
+                    $(this).next().show();
+                });
+                $("#menuCorrection").delegate(".reg", "mouseleave", function (event) {
+                    $(this).hide();
+                    var note = parseFloat($(this).next().find("input").val());
+                    if ($(this).attr("id") == "mcReg0") {
+                        if ($(this).find("textarea").val().length > 3) {
+                            $(this).prev().removeClass("rouge").addClass("vert").text("OK");
+                        } else {
+                            $(this).prev().removeClass("vert").addClass("rouge").text("?");
+                        }
+                    } else {
+                        if ($(this).find("textarea").val().length > 3 && !isNaN(note)) {
+                            $(this).prev().removeClass("rouge").addClass("vert").text("OK");
+                        } else {
+                            $(this).prev().removeClass("vert").addClass("rouge").text("?");
+                        }
+                    }
+                    corrige.setCode();
+                });
+                $("#menuCorrection").delegate(".sup", "click", function (event) {
+                    $(this).parent().remove();
+                    corrige.setCode();
+                });
+                $("#menuCorrection #mcTriable").delegate(".note", "change", function (event) {
+                    $(this).parent().prev().trigger("mouseleave");
+                });
+                $("#menuCorrection #mcTriable").delegate(".commentaire", "change", function (event) {
+                    corrige.setCode();
+                });
+                $("#menuCorrection #mcAdd").on("click", function (event) {
+                    var indice = 0;
+                    $("#menuCorrection #mcTriable").find(".test").each(function () {
+                        var i = parseInt($(this).attr("id").substring(4));
+                        if (i > indice) {
+                            indice = i;
+                        }
+                    });
+                    indice += 1;
+                    var html = '<div class="etape"><img src="algo.svg"><div id="testindice" class="test rouge">?</div><div id="mcRegindice" class="reg"><span>Expression régulière</span><textarea  id="mcRegExpindice" class="regExp">//i</textarea></div><div class="param"><span>note : </span><input class="note" type="text" id="mcNoteindice" style="width:50px;text-align:center"><p>commentaire :</p><p><textarea id="mcCommentaireindice" class="commentaire" style="width: 250px;height: 56px;"></textarea></p></div><div id="mcSupindice" class="sup"><img  src="https://coursdesciences.fr/devoir/API4/delete16.png"> </div> </div>';
+                    html = html.replace(/indice/g, "" + indice);
+                    $("#menuCorrection #mcTriable").append(html);
+                });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

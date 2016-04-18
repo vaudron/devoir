@@ -1,0 +1,94 @@
+<div class="unselectable textSelectable construction savable" type="text_selectable" id="boiteindice" maxSelect="0" select="0" style="position: absolute; left: 0px; top: 0px; width: 200px; z-indice: auto; right: auto; bottom: auto; height: 45px;"><span class="text_selectable" mode="modif"></span>
+    <input id="Textindice" type="text" style="display:none">
+    <correction>
+        <iff></iff>
+        <note></note>
+        <penalite></penalite><code>boiteindice()</code></correction>
+    <script class="action">
+        $("#boiteindice>span").on("click", "span.txtSelectable", function (event) {
+            var dvTemp = $("#boiteindice span").attr("mode");
+            var maxSelect = parseInt($(this).parent().parent().attr("maxSelect"));
+            var select = parseInt($(this).parent().parent().attr("select"));
+            if ($(this).hasClass("textSelected")) {
+                select -= 1;
+                if (((maxSelect - select + 1) > 0) || (maxSelect == 0)) {
+                    $(this).parent().parent().attr("select", select);
+                    $(this).removeClass("textSelected");
+                    if (dvTemp == "modif") {
+                        $(this).children().last().remove();
+                    }
+                }
+            } else {
+                if (((maxSelect - select + 1) > 0) || (maxSelect == 0)) {
+                    select += 1;
+                    $(this).parent().parent().attr("select", select);
+                    $(this).addClass("textSelected");
+                    if (dvTemp == "modif") {
+                        $(this).append(' <input type="text" class="text_eleve" style="width:7em">');
+                    }
+                }
+            }
+        });
+        $("#boiteindice span").on("click", "input", function (evt) {
+            evt.stopPropagation()
+        });
+    </script>
+    <script>
+        $("#Textindice").on("change", function (event) {
+            $("#boiteindice>span").html($(this).val());
+            $("#boiteindice>span").find("input").each(function () {
+                $(this).val($(this).attr("val"))
+            });
+        });
+
+        function boiteindice() {
+            var bareme = parseFloat($("#boiteindice note").text());
+            var mode = $("#boiteindice>span").attr("mode");
+            var max = $("#boiteindice iff").find(".textSelected").length;
+            if (mode == "modif") {
+                max += max
+            }
+            var note = 0;
+            var $reponse = $("#boiteindice span").find("span");
+            $("#boiteindice iff").find("span").each(function (i) {
+                if ($($reponse).eq(i).hasClass("textSelected")) {
+                    if ($(this).hasClass("textSelected")) {
+                        $($reponse).eq(i).addClass("correct");
+                        note += 1;
+                        if (mode == "modif") {
+                            var myReg = new RegExp($(this).children().last().attr("val"), "i");
+                            var rep = $($reponse).eq(i).children().last().val();
+                            if (myReg.test(rep)) {
+                                $($reponse).eq(i).children().last().addClass("correct");
+                                note += 1;
+                            } else {
+                                $($reponse).eq(i).children().last().addClass("incorrect").attr("titre", $(this).children().last().attr("val"));
+                            }
+                        }
+                    } else {
+                        $($reponse).eq(i).addClass("incorrect");
+                    }
+                }
+            });
+            note_max += bareme;
+            note_globale += note / max * bareme;
+            var affiche_note = $("#boiteindice").parentsUntil("#questions", ".question").find(".noteExo span").attr("id");
+            afficheNote(affiche_note, note / max * bareme);
+            afficheNote(affiche_note + "max", bareme);
+        }
+        $("#boiteindice iff").on("boiteindicecorrige", function (evt) {
+            $("#boiteindice iff").html($("#mccorrige").html());
+        });
+        $("#boiteindice>span").on("changeContenu", function (evt) {
+            $(this).html($("#meCorrige").html());
+            $(this).parent().find("iff").html("");
+            $("#mccorrige").trigger("change")
+        });
+        $("#boiteindice").on("save", function (evt) {
+            $(this).children("span").find("input").each(function () {
+                $(this).attr("val", $(this).val())
+            });
+            $("#Textindice").val($("#boiteindice>span").html());
+        });
+    </script>
+</div>

@@ -1,0 +1,68 @@
+<div id="outils" class="unselectable">
+    <div id="addContent">
+        <span id="baliseDiv" class="CD_btn" title="Ajouter une boite"></span>
+        <span id="addChekbox" class="CD_btn" title="Ajouter une case à cocher"></span>
+        <span id="addRadio" class="CD_btn" title="Ajouter un bouton radio"></span>
+        <span id="addInputText" class="CD_btn" title="Ajouter une saisie de texte"></span>
+        <span id="addTextarea" class="CD_btn" title="Ajouter une zone de texte"></span>
+        <span id="addManuel" class="CD_btn" title="Ajouter une zone d'évaluation manuelle"></span>
+        <span id="addZoneNote" class="CD_btn" title="Ajouter une zone d'affichage de la note"></span>
+        <span id="addImage" class="CD_btn" title="Ajouter une image"></span>
+        <span id="addCommentaire" class="CD_btn" title="Ajouter un commentaire"></span>
+        <span id="addDrop" class="CD_btn" title="Ajouter une zone de dépôt"></span>
+        <span id="addDrag" class="CD_btn" title="Ajouter une zone glissable"></span>
+        <span id="addTextSelectable" class="CD_btn" title="Ajouter une activité type portions de texte selectionnables"></span>
+        <span id="addMathAnswer" class="CD_btn" title="Ajouter une équation au format mathématique"></span>
+        <span id="addDialog" class="CD_btn" title="Ajouter une boite de dialogue"></span>
+        <span id="addTabConv" class="CD_btn" style="display:none"></span>
+        <span id="addVolet" class="CD_btn" style="display:none"></span>
+        <span id="addCloze" class="CD_btn" style="display:none"></span>
+        <span id="addMath" class="CD_btn" title="Ajouter une équation au format mathématique"></span>
+        <select id="choixActivite">
+            <option selected="selected" value="activité...">activité...</option>
+            <option value="Latex">Latex</option>
+            <option value="Tableau de conversion">Tableau de conversion</option>
+            <option value="Texte à trous">Texte à trous</option>
+            <option value="volet agrandissable">volet agrandissable</option>
+        </select>
+        <script>
+            $("#choixActivite").on("change", function (event) {
+                var option = $(this).val();
+                switch (option) {
+                case "Tableau de conversion":
+                    $("#addTabConv").click();
+                    $(this).val("activité...");
+                    break;
+                case "volet agrandissable":
+                    $("#addVolet").click();
+                    $(this).val("activité...");
+                    break;
+                case "Texte à trous":
+                    $("#addCloze").click();
+                    $(this).val("activité...");
+                    break;
+                case "Latex":
+                    $("#addMath").click();
+                    $(this).val("activité...");
+                    break;
+                }
+            });
+        </script>
+    </div>
+
+</div>
+<div id="outilsLeft" class="unselectable">
+    <span id="addQuestion" class="CD_btnV" title="ajouter une partie"></span>
+    <span id="save" class="CD_btnV"></span>
+    <span id="open" class="CD_btnV" title="ouvrir"></span>
+    <span id="deselected" class="CD_btnV" title="Désélectionner les sélections"></span>
+    <span id="layerUp" class="CD_btnV" title="placer au dessus"></span>
+    <span id="layerDown" class="CD_btnV" title="placer au dessous"></span>
+    <span id="leftAlign" class="CD_btnV" title="Alignement à gauche par rapport au PREMIER S&Eacute;LECTIONN&Eacute;E"></span>
+    <span id="rightAlign" class="CD_btnV" title="Alignement à droite par rapport au PREMIER S&Eacute;LECTIONN&Eacute;E"></span>
+    <span id="bottomAlign" class="CD_btnV" title="Alignement par le bas par rapport au PREMIER S&Eacute;LECTIONN&Eacute;E"></span>
+    <span id="topAlign" class="CD_btnV" title="Alignement par le haut par rapport au PREMIER S&Eacute;LECTIONN&Eacute;E"></span>
+    <span id="verticalAjust" class="CD_btnV" title="Ajustement vertical des espaces libres entre les éléments"></span>
+    <span id="horizontalAjust" class="CD_btnV" title="Ajustement horizontal des espaces libres entre les éléments"></span>
+    <span id="repere" class="CD_btnV" title="Afficher ou masquer les repères"></span>
+</div>

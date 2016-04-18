@@ -1,0 +1,13 @@
+<script src="https://cdn.itslearning.com/v3.54.0.41/javascript/jQuery/jquery-1.7.1/jquery-1.7.1.min.js" type="text/javascript"></script>
+<div class="log"></div>
+<script>
+$(document).ajaxError(function( e, jqxhr, settings, exception ) {
+  if ( settings.dataType == "script" ) {
+    $( "div.log" ).text( "Triggered ajaxError handler." );
+  }
+});
+$.getScript("https://files.itslearning.com/data/2362/c44382/add new file.html",
+function (data, textStatus, jqxhr){
+	$(data).find('.ccl-filelink a').each(function(){console.log($(this).attr("href"))})
+});
+</script>
