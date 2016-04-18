@@ -606,7 +606,7 @@ var CreatePage = function() {
         }, $.proxy(this.addDiv, this));
         $("#addCloze").on("click", null, {
             element: "boite",
-            codeHtml: '<div class="unselectable construction" id="boiteindice" title="clozeindice" style="position: absolute; left: 0px; top: 0px; width: 400px;height:200px; z-indice: auto; right: auto; bottom: auto;"><span id="clozeindice" class="cloze" style="display:none;"></span> <div id="renduClozeindice"></div> <textarea id="inputHtmlindice" class="savable" style="display:none"></textarea> <script> question_cloze["clozeindice"] = new cloze("#clozeindice", "#renduClozeindice");  question_cloze["clozeindice"].init(); $("#clozeindice").on("changeCloze", function (event) { $("#renduClozeindice").html(""); question_cloze["clozeindice"].init();});$("#inputHtmlindice").change(function (event) {            $("#renduClozeindice").html($("#inputHtmlindice").val()); question_cloze["clozeindice"].setInteractivite();$("#renduClozeindice .clozeInput").each(function(ev){$(this).val($(this).attr("depot").replace(/&apos;/g, "\'"));});}).on("save", function (event) { $("#renduClozeindice .clozeInput").each(function(ev){ $(this).attr("depot",$(this).val().replace(/\'/g, "&apos;")); });$("#inputHtmlindice").val($("#renduClozeindice").html());});</script></div>'
+            codeHtml: '<div class="unselectable construction" id="boiteindice" title="clozeindice" style="position: absolute; left: 0px; top: 0px; width: 400px;height:200px; z-indice: auto; right: auto; bottom: auto;"><span id="clozeindice" class="cloze" style="display:none;"></span> <div id="renduClozeindice"></div> <textarea id="inputHtmlindice" class="savable" style="display:none"></textarea><correction><code>question_cloze["clozeindice"].correction()</code></correction>  <script> question_cloze["clozeindice"] = new cloze("#clozeindice", "#renduClozeindice");  question_cloze["clozeindice"].init(); $("#clozeindice").on("changeCloze", function (event) { $("#renduClozeindice").html(""); question_cloze["clozeindice"].init();});$("#inputHtmlindice").change(function (event) {            $("#renduClozeindice").html($("#inputHtmlindice").val()); question_cloze["clozeindice"].setInteractivite();$("#renduClozeindice .clozeInput").each(function(ev){$(this).val($(this).attr("depot").replace(/&apos;/g, "\'"));});}).on("save", function (event) { $("#renduClozeindice .clozeInput").each(function(ev){ $(this).attr("depot",$(this).val().replace(/\'/g, "&apos;")); });$("#inputHtmlindice").val($("#renduClozeindice").html());});</script></div>'
         }, $.proxy(this.addDiv, this));
 
         $("#layerUp").on("click", $.proxy(function(event) {
@@ -1476,7 +1476,7 @@ function setdropUIParameter(event) {
     });
 }
 
-function dropDrop(event, ui) {
+function dropDrop(event, ui){
     var type = $("#" + event.target.id).attr("mode");
     $(ui.draggable[0]).draggable("option", "revert", true);
     if (type == "Multiple") {
