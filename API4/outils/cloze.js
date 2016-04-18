@@ -188,6 +188,5 @@ var cloze = function (selectorDonnees, selectorRendu) {
         note_max += parseFloat(max);
         afficheNote(zoneResult, note);
         afficheNote(zoneResult + "max", max);
-        return this.note + "/" + this.max;
     }
 	}

@@ -1637,8 +1637,6 @@ function addDragStop(event) {
     $(event.target).removeClass('partiel');
 }
 
-
 var maPage;
 maPage = new CreatePage();
-
 var corrige = new Correction(maPage);
