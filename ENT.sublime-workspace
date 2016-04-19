@@ -1,0 +1,510 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"zon",
+				"zoneResult"
+			],
+			[
+				"dvDrag",
+				"dvDragStart"
+			],
+			[
+				"rem",
+				"removeClass	.removeClass()"
+			],
+			[
+				"add",
+				"addClass	.addClass()"
+			],
+			[
+				"type",
+				"typeof"
+			],
+			[
+				"pa",
+				"pathName"
+			],
+			[
+				"create",
+				"createPath"
+			],
+			[
+				"chemin",
+				"cheminDossier"
+			],
+			[
+				"dv",
+				"dvCoursID"
+			],
+			[
+				"uns",
+				"unshift"
+			],
+			[
+				"ex",
+				"exec"
+			],
+			[
+				"myreg",
+				"myRegExp"
+			],
+			[
+				"cours",
+				"coursID"
+			],
+			[
+				"path",
+				"pathname"
+			],
+			[
+				"a",
+				"append	.append()"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4/outils/cloze.js",
+			"settings":
+			{
+				"buffer_size": 8263,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4/js/createDevoir.js",
+			"settings":
+			{
+				"buffer_size": 111303,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git (SideBarGit): Status"
+			],
+			[
+				"git sta",
+				"Git (SideBarGit): Status"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 746.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"ls",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4/js"
+	],
+	"file_history":
+	[
+		"/var/www/html/devoir/projet_ENT/devoir/API4/js/createDevoir.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/API4/outils/cloze.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4/outils/cloze.js",
+		"/tmp/3-APIinteractivite.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4/js/APIinteractivite.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/sftp-config.json",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4/php/loadQuestion.php",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4/js/ENT.js",
+		"/tmp/3-createDevoir.js",
+		"/tmp/2-createDevoir.js",
+		"/tmp/4-index.html",
+		"/tmp/1-createDevoir.js",
+		"/home/dd/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4/css/defaut.css",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projetNonENT/noENT.sublime-project",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projetNonENT/devoir/API4/js/APIinteractivite.js",
+		"/tmp/3-index.html",
+		"/tmp/2-index.html",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/API4/.brackets.json",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/API4/sftp-config.json",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet/devoir/sftp-config.json",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet/devoir/API4/prof/UIprof.html",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet/devoir/API4/js/createDevoir.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet/devoir/API4/js/ENT.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet/devoir/API4/js/APIinteractivite.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet/devoir/API4/js/ent_uid.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/old/toto.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/test.html",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet/devoir/API4/php/saveQuestions.php",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet/devoir/API4/php/loadQuestion.php",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet/devoir/API4/php/loadSVG.php",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/test/index.html",
+		"/tmp/1-questions.html",
+		"/tmp/1-init_devoir.js",
+		"/tmp/1-index.html",
+		"/tmp/1-DVinit.js",
+		"/tmp/1-scriptENT.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/temp/script_devoir_old.js",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/temp/script_devoir.js",
+		"/home/dd/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/tmp/2-questions.html",
+		"/home/dd/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/Default (Linux).sublime-keymap",
+		"/home/dd/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/dd/.config/sublime-text-3/Packages/User/JavaScript.sublime-settings",
+		"/home/dd/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet/devoir.sublime-project"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"evaluate",
+			"evaluate_cloze",
+			"valuate_cloze",
+			"API4",
+			"partiel",
+			"typeClasse",
+			"dvCoursID",
+			"44383",
+			"ui-touch"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"ENT/API4"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4/outils/cloze.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8263,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8177,
+								8177
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2958.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/dd/insync/didier.vaudron@gmail.com/college/devoir_ENT/projet_ENT/devoir/API4/js/createDevoir.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 111303,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								104659,
+								104659
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 31450.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 112.0
+	},
+	"pinned_build_system": "",
+	"project": "ENT.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 282.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
