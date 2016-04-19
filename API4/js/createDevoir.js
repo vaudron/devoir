@@ -1131,7 +1131,13 @@ var CreatePage = function() {
             .on('dblclick', function(event) {
                 event.stopPropagation();
                 dv.boiteID = this.id;
-                CKEDITOR.instances.modifTextarea.document.$.body.innerHTML = $(this).find("span")[0].innerHTML;
+                var txt = $(this).find("span")[0].innerHTML;
+                if(txt=="contenu à définir"){
+                    CKEDITOR.instances.modifTextarea.document.$.body.innerHTML ="";
+                }else{
+                    CKEDITOR.instances.modifTextarea.document.$.body.innerHTML = txt;
+                //CKEDITOR.instances.modifTextarea.document.$.body.innerHTML = $(this).find("span")[0].innerHTML;
+                }
                 //CKEDITOR.instances.modifTextarea.document.$.body.innerHTML = $(this)[0].firstChild.innerHTML;
                 //$("#textModif textarea").val($(this)[0].firstChild.innerHTML);
 
