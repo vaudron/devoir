@@ -182,11 +182,15 @@ var cloze = function (selectorDonnees, selectorRendu) {
         
         this.note = note;
         this.max = max;
+<<<<<<< HEAD
         var zoneResult=$(selecteurResultat).parents(".page").find("[id*=noteq]").attr("id");
         zoneResult=zoneResult.substring(4);
         note_globale += parseFloat(note);
         note_max += parseFloat(max);
         afficheNote(zoneResult, note);
         afficheNote(zoneResult + "max", max);
+=======
+        return this.note + "/" + this.max;
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
     }
 	}

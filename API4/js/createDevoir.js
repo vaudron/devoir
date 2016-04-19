@@ -579,11 +579,20 @@ var CreatePage = function() {
         $("#addDrag").on("click", null, {
             element: "boite",
             type: "drag",
+<<<<<<< HEAD
             codeHtml: '<div id="boiteindice" class="unselectable  construction"  style="position:absolute;left:0px;top:0px;width:150px;height:100px;"><div id="dragindice" class="unselectable dvDrag" style="position:absolute;left:0px;top:0px;width:100%;height:100%;cursor:pointer;z-index:10"><span></span></div><script class="interactivite">$("#dragindice").draggable({containment:"#page", cursor: "pointer",   revert: true, zIndex: 1000,stop:addDragStop,start:addDragStart});</script></div>'
         }, $.proxy(this.addDiv, this));
         $("#addTextSelectable").on("click", null, {
             element: "boite",
          }, $.proxy(this.addDiv, this));
+=======
+            codeHtml: '<div id="boiteindice" class="unselectable  construction"  style="position:absolute;left:0px;top:0px;width:150px;height:100px;"><div id="dragindice" class="unselectable dvDrag" style="position:absolute;left:0px;top:0px;width:100%;height:100%;cursor:pointer;z-index:10"><span></span></div><script class="interactivite">$("#dragindice").draggable({containment:"#page", cursor: "pointer",   revert: true, zIndex: 1000,stop:dvDragStop});</script></div>'
+        }, $.proxy(this.addDiv, this));
+        $("#addTextSelectable").on("click", null, {
+            element: "boite",
+            codeHtml: '<div class="unselectable textSelectable construction savable" type="text_selectable" id="boiteindice" style="position: absolute; left: 0px; top: 0px; width: 200px; z-indice: auto; right: auto; bottom: auto; height: 45px;"><span class="text_selectable" mode="modif"><div select="0" maxselect="0" class="dv" style="text-align: justify;"><span> </span></div></span><input id="Textindice" type="text" style="display:none"><correction><iff></iff><note></note><penalite>0</penalite><code>boiteindice()</code></correction><script class = "action">$("#boiteindice>span").on("click","span.txtSelectable",function (event) {    var dvTemp=$("#boiteindice>span").attr("mode");var maxSelect=parseInt($(this).parent().attr("maxSelect"));var select=parseInt($(this).parent().attr("select")); console.log(maxSelect+" : "+select); if ($(this).hasClass("textSelected")) {                select -= 1;                if (((maxSelect - select) > 0) || (maxSelect == 0)) {                    $(this).parent().attr("select", select);                   $(this).removeClass("textSelected");                    if (dvTemp == "modif") {                        $(this).children().last().remove();                    }                }            } else {                if (((maxSelect - select) > 0) || (maxSelect == 0)) {                    select += 1;                    $(this).parent().attr("select", select);                    $(this).addClass("textSelected");                    if (dvTemp == "modif") {                        $(this).append(\' <input type="text" class="text_eleve" style="width:7em">\');                    }                }            }});$("#boiteindice span").on("click", "input", function (evt) {evt.stopPropagation()});</script><script>$("#Textindice").on("change", function (event) {    $("#boiteindice>span").html($(this).val());    $("#boiteindice>span").find("input").each(function () {        $(this).val($(this).attr("val"))    });});function boiteindice() {    var bareme = parseFloat($("#boiteindice note").text());    var mode = $("#boiteindice>span").attr("mode");    var max = $("#boiteindice iff").find(".textSelected").length; var nbPenalite=0;            var penalite=parseFloat($("#boiteindice penalite").text());   if (mode == "modif") {        max += max    }    var note = 0;    var $reponse = $("#boiteindice span").find("span");    $("#boiteindice iff").find("span").each(function (i) {        if ($($reponse).eq(i).hasClass("textSelected")) {            if ($(this).hasClass("textSelected")) {                $($reponse).eq(i).addClass("correct");                note += 1;                if (mode == "modif") {                    var myReg = new RegExp($(this).children().last().attr("val"), "i");                    var rep = $($reponse).eq(i).children().last().val();                    if (myReg.test(rep)) {                        $($reponse).eq(i).children().last().addClass("correct");                        note += 1;                    } else {                        $($reponse).eq(i).children().last().addClass("incorrect").attr("titre", $(this).children().last().attr("val"));                    }                }            } else {                $($reponse).eq(i).addClass("incorrect");nbPenalite+=1;            }        }    });    note_max += bareme;var noteFin=(note / max * bareme)-(penalite*nbPenalite);            notefin =(noteFin<0)?0:noteFin;            note_globale += noteFin;            var affiche_note = $("#boiteindice").parentsUntil("#questions", ".question").find(".noteExo span").attr("id");            afficheNote(affiche_note, noteFin);            afficheNote(affiche_note + "max", bareme);}$("#boiteindice iff").on("boiteindicecorrige", function (evt) {    $("#boiteindice iff").html($("#mccorrige").html());});$("#boiteindice>span").on("changeContenu", function (evt) {    $(this).find("div.dv").html($("#meCorrige").html());$(this).parent().find("iff").html(""); $("#mccorrige").trigger("change")});$("#boiteindice").on("save", function (evt) {    $(this).children("span").find("input").each(function () {        $(this).attr("val", $(this).val())    });    $("#Textindice").val($("#boiteindice>span").html());});</script></div>'
+        }, $.proxy(this.addDiv, this));
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
         $("#addMathAnswer").on("click", null, {
             element: "boite",
             codeHtml: '<div statu="non-modifiable" class="unselectable dvScience savable dvFocused ui-droppable ui-draggable ui-draggable-handle ui-resizable construction" type="scientifique" id="boiteindice" style="width: 377px; height: 243px; z-index: 20; right: auto; bottom: auto; font-size: 14px; position: absolute; top: 91px; left: 76px;"><div style="position: absolute; width: 100%;"> <img style="display: block;" title="Liste des commandes" src="' + site + API + '/img/aide.png" class="aide"><img style="display: block;" title="initialiser ou réinitialiser l\'interactivité" src="' + site + API + '/img/refresh.png" class="refresh"><img title="ajouter une ligne au début" src="' + site + API + '/img/newLine.png" class="firstAdd" style="display: block;"></div><div id="dvMathindice" style="position: absolute; overflow: auto; width: 100%; max-height: 95%; margin-top: 10px;"><span style="font-size: 0px;"></span></div> <input id="scienceindice" style="display: none;" type="text"> <script class="scriptScience"> $("#boiteindice .refresh").on("click", function(evt) { $("#boiteindice").trigger("refresh"); }); $("#boiteindice").on("click", ".firstAdd", function(evt) { evt.stopPropagation(); var html = \'<span class="dvMq new"  style="display: block; border: medium none;" latex=""></span><img class="supp" src="' + site + API + '/img/smallSupp.png" title="Supprimer la ligne">\'; $("#dvMathindice").prepend(html); $("#dvMathindice .new").trigger("newDvMq"); $("#dvMathindice .new").find("textarea").trigger("focus"); $("#dvMathindice .new").removeClass("new"); }); $("#scienceindice").on("change", function(evt) { $("#boiteindice").trigger("change"); }); $("#boiteindice").on("save", function(evt) { var txt = encodeURI($("#dvMathindice").html()); $("#scienceindice").val(txt); }); $("#boiteindice").on("change", function(evt) { $(".question").show(); if ($("#boiteindice").attr("statu") == "modifiable") { $("#dvMathindice").html(decodeURI($("#scienceindice").val())); $("#boiteindice").trigger("refresh"); } }); $("#boiteindice").on("refresh", function(evt) { $("#boiteindice .supp,#boiteindice .firstAdd,#boiteindice .aide,#boiteindice .refresh").hide(); $("#dvMathindice .dvMq").each(function() { $(this).attr("class", "dvMq").text($(this).attr("latex")); if ((statu == "eleve" && !revoirDs && $("#boiteindice").attr("statu") == "modifiable") || (statu == "prof" && dv.modeEbauche && $("#boiteindice").attr("statu") != "modifiable")) { MQ.MathField(this) } else { MQ.StaticMath(this) } }); if ((statu == "eleve" && !revoirDs && $("#boiteindice").attr("statu") == "modifiable") || (statu == "prof" && dv.modeEbauche && $("#boiteindice").attr("statu") != "modifiable")) { $("#boiteindice .supp,#boiteindice .firstAdd,#boiteindice .aide,#boiteindice .refresh").show(); $("#dvMathindice").off("newDvMq mousedown blur lostFocus focus click mouseenter mouseleave keydown"); $("#dvMathindice").on("newDvMq", ".dvMq", function(evt) { MQ.MathField(this) }); $("#dvMathindice").on("mousedown click", ".dvMq", function(evt) { evt.stopPropagation(); }); $("#dvMathindice").on("blur", ".dvMq textarea", function(evt) { $(this).parent().parent().parent().trigger("lostFocus") }); $("#dvMathindice").on("lostFocus", function(evt) { if ($("#dvMathindice .mq-focused").length == 0) { $("#dvMathindice").addClass("dvFocused"); } else { $("#dvMathindice").removeClass("dvFocused"); $("#dvMathindice .dvMq").each(function() { $(this).attr("latex", MQ.MathField(this).latex()) }); } }); $("#dvMathindice").on("focus", ".dvMq textarea", function(evt) { $(this).parent().parent().parent().trigger("hasFocus") }); $("#dvMathindice").on("hasFocus", function(evt) { $("#boiteindice").addClass("dvFocused"); }); $("#dvMathindice").on("click", ".supp", function(evt) { $(this).prev().remove(); $(this).remove(); }); $("#dvMathindice").on("mouseenter", ".supp", function(evt) { $(this).prev().css("background-color", "rgb(221, 142, 136)") }); $("#dvMathindice").on("mouseleave", ".supp", function(evt) { $(this).prev().css("background-color", "") }); $("#dvMathindice").on("keydown", ".dvMq", function(event) { event.stopPropagation(); if (event.which == 13) { var html = \'<span class="dvMq"  style="display: block; border: medium none;" latex=""></span><img class="supp" src="' + site + API + '/img/smallSupp.png" title="Supprimer la ligne">\'; $(this).next().after(html); $(this).next().next().trigger("newDvMq"); $(this).next().next().find("textarea").trigger("focus"); } }); $("#boiteindice .aide").off("click"); $("#boiteindice .aide").on("click", function(evt) { $("#aide").load("https://coursdesciences.fr/devoir/outils/aide_mathQuill.html"); $("#aide").dialog({ position: { my: "left center", at: "right top", of: this }, width: 410 }); $("#aide").dialog("open"); }); } $(".question").hide(); $("#page").parent().show(); }); </script></div>'
@@ -607,7 +616,11 @@ var CreatePage = function() {
         }, $.proxy(this.addDiv, this));
         $("#addCloze").on("click", null, {
             element: "boite",
+<<<<<<< HEAD
             codeHtml: '<div class="unselectable construction" id="boiteindice" title="clozeindice" style="position: absolute; left: 0px; top: 0px; width: 400px;height:200px; z-indice: auto; right: auto; bottom: auto;"><span id="clozeindice" class="cloze" style="display:none;"></span> <div id="renduClozeindice"></div> <textarea id="inputHtmlindice" class="savable" style="display:none"></textarea><correction><code>question_cloze["clozeindice"].correction()</code></correction>  <script> question_cloze["clozeindice"] = new cloze("#clozeindice", "#renduClozeindice");  question_cloze["clozeindice"].init(); $("#clozeindice").on("changeCloze", function (event) { $("#renduClozeindice").html(""); question_cloze["clozeindice"].init();});$("#inputHtmlindice").change(function (event) {            $("#renduClozeindice").html($("#inputHtmlindice").val()); question_cloze["clozeindice"].setInteractivite();$("#renduClozeindice .clozeInput").each(function(ev){$(this).val($(this).attr("depot").replace(/&apos;/g, "\'"));});}).on("save", function (event) { $("#renduClozeindice .clozeInput").each(function(ev){ $(this).attr("depot",$(this).val().replace(/\'/g, "&apos;")); });$("#inputHtmlindice").val($("#renduClozeindice").html());});</script></div>'
+=======
+            codeHtml: '<div class="unselectable construction" id="boiteindice" title="clozeindice" style="position: absolute; left: 0px; top: 0px; width: 400px;height:200px; z-indice: auto; right: auto; bottom: auto;"><span id="clozeindice" class="cloze" style="display:none;"></span> <div id="renduClozeindice"></div> <textarea id="inputHtmlindice" class="savable" style="display:none"></textarea> <script> question_cloze["clozeindice"] = new cloze("#clozeindice", "#renduClozeindice");  question_cloze["clozeindice"].init(); $("#clozeindice").on("changeCloze", function (event) { $("#renduClozeindice").html(""); question_cloze["clozeindice"].init();});$("#inputHtmlindice").change(function (event) {            $("#renduClozeindice").html($("#inputHtmlindice").val()); question_cloze["clozeindice"].setInteractivite();$("#renduClozeindice .clozeInput").each(function(ev){$(this).val($(this).attr("depot").replace(/&apos;/g, "\'"));});}).on("save", function (event) { $("#renduClozeindice .clozeInput").each(function(ev){ $(this).attr("depot",$(this).val().replace(/\'/g, "&apos;")); });$("#inputHtmlindice").val($("#renduClozeindice").html());});</script></div>'
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
         }, $.proxy(this.addDiv, this));
 
         $("#layerUp").on("click", $.proxy(function(event) {
@@ -1490,6 +1503,7 @@ function setdropUIParameter(event) {
     });
 }
 
+<<<<<<< HEAD
 function dropDrop(event, ui){
     var type = $("#" + event.target.id).attr("mode");
     $(ui.draggable[0]).draggable("option", "revert", true);
@@ -1516,6 +1530,14 @@ function dropDrop(event, ui){
         }
         //$("#" + event.target.id).attr("depot", $(ui.draggable[0]).attr("id"));
         //var txt = $("#drop" + event.target.id.substring(5)).val();
+=======
+function dropDrop(event, ui) {
+    var type = $("#" + event.target.id).attr("mode");
+    $(ui.draggable[0]).draggable("option", "revert", true);
+    if (type == "Multiple") {
+        $("#" + event.target.id).attr("depot", $(ui.draggable[0]).attr("id"));
+        var txt = $("#drop" + event.target.id.substring(5)).val();
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
         if (txt != "") {
             txt += ";";
         }
@@ -1524,7 +1546,11 @@ function dropDrop(event, ui){
         $("#" + event.target.id).attr("depot", txt);
         $(ui.draggable[0]).draggable("option", "revert", false);
         var nbTentative = parseInt($("#" + event.target.id).attr("tentative"));
+<<<<<<< HEAD
         if (nbTentative != 0 && !depotDejaPresent) {
+=======
+        if (nbTentative != 0) {
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
             nbTentative -= 1;
             $("#" + event.target.id).attr("tentative", nbTentative);
             $("#" + event.target.id).attr("titre", "plus que " + $("#" + event.target.id).attr("tentative") + " dépôt(s) possible(s)");
@@ -1565,6 +1591,10 @@ function dropDrop(event, ui){
             }
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
 }
 
 
@@ -1617,11 +1647,15 @@ function dropChange(event) {
     }
 }
 
+<<<<<<< HEAD
 function addDragStart(event){
     $(event.target).addClass('partiel');
 }
 
 function addDragStop(event) {
+=======
+function dvDragStop(event) {
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
 
     var revert = $(event.target).draggable("option");
     $(event.target).draggable("option", {
@@ -1634,9 +1668,20 @@ function addDragStop(event) {
         revert: true
     });
     $(event.target).css("width", "100%").css("height", "100%");
+<<<<<<< HEAD
     $(event.target).removeClass('partiel');
 }
 
 var maPage;
 maPage = new CreatePage();
 var corrige = new Correction(maPage);
+=======
+
+}
+
+
+var maPage;
+maPage = new CreatePage();
+
+var corrige = new Correction(maPage);
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7

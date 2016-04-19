@@ -201,7 +201,11 @@
  }
  
  #baliseDiv {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 224px;
  }
  
@@ -217,12 +221,20 @@
  }
  
  #addChekbox {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 128px;
  }
  
  #addRadio {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 96px;
  }
  
@@ -235,7 +247,11 @@
  }
  
  #addInputText {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 64px;
  }
  
@@ -244,7 +260,11 @@
  }
  
  #addTextarea {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 32px;
  }
  
@@ -257,7 +277,11 @@
  }
  
  #modEbauche {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 512px;
  }
  
@@ -267,7 +291,11 @@
  }
  
  #deselected {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 160px;
  }
  
@@ -276,7 +304,11 @@
  }
  
  #leftAlign {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 480px;
  }
  
@@ -285,7 +317,11 @@
  }
  
  #rightAlign {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 448px;
  }
  
@@ -294,7 +330,11 @@
  }
  
  #bottomAlign {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 416px;
  }
  
@@ -303,7 +343,11 @@
  }
  
  #topAlign {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 384px;
  }
  
@@ -312,12 +356,20 @@
  }
  
  #verticalAjust {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 256px;
  }
  
  #horizontalAjust {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 288px;
  }
  
@@ -339,7 +391,11 @@
  
  #save,
  #save2 {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 546px;
  }
  
@@ -349,7 +405,11 @@
  }
  
  #open {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 578px;
  }
  
@@ -373,7 +433,11 @@
  }
  
  #addManuel {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 608px;
  }
  
@@ -387,7 +451,11 @@
  }
  
  #addZoneNote {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 640px;
  }
  
@@ -440,7 +508,11 @@
  }
  
  #addImage {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 672px;
  }
  
@@ -449,7 +521,11 @@
  }
  
  #addCommentaire {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 802px;
  }
  
@@ -458,7 +534,11 @@
  }
  
  #layerUp {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 704px;
  }
  
@@ -467,7 +547,11 @@
  }
  
  #layerDown {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 736px;
  }
  
@@ -511,7 +595,11 @@
  }
  
  #addQuestion {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 768px;
  }
  
@@ -531,7 +619,11 @@
  }
  
  #addDrop {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 834px;
  }
  
@@ -540,7 +632,11 @@
  }
  
  #addDrag {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 866px;
  }
  
@@ -549,7 +645,11 @@
  }
  
  #addTextSelectable {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 898px;
  }
  
@@ -558,7 +658,11 @@
  }
  
  #addDialog {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 930px;
  }
  
@@ -567,7 +671,11 @@
  }
  
  #addMathAnswer {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 962px;
  }
  
@@ -576,7 +684,11 @@
  }
  
  #repere {
+<<<<<<< HEAD
      background-image: url("img/iconsdv.png");
+=======
+     background-image: url("../../createDevoir/img/iconsdv.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      background-position: 32px 994px;
  }
  
@@ -594,7 +706,11 @@
  }
  
  div.dvDialog.construction::before {
+<<<<<<< HEAD
      content: url("img/Pencil.png");
+=======
+     content: url("../../createDevoir/img/Pencil.png");
+>>>>>>> be08d87117f17e2ab0543019d423041d80404cb7
      width: 20px;
      height: 20px;
      position: relative;

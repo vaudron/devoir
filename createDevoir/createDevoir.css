@@ -1,0 +1,385 @@
+.page {
+    width: 700px;
+    height: 500px;
+    border: 1px solid #999;
+    box-shadow: 4px 4px 4px #999;
+    position: relative;
+    overflow: inherit;
+    left: 40px;
+    font-size: 14px;
+}
+
+#addContent {
+    display: inline-block;
+    width: 49%;
+}
+
+.construction {
+    border: 1px dashed #999;
+    cursor: move;
+}
+
+.hoverDroppable {
+    background-color: ghostwhite;
+    z-index: 0;
+}
+
+.construction input {
+    background-color: gainsboro;
+}
+
+.selected {
+    border-color: crimson;
+    border-style: solid;
+}
+
+#modifContent {
+    display: inline-block;
+    width: 49%;
+}
+
+#outils {
+    width: 700px;
+    position: relative;
+    left: 40px;
+    height: 35px;
+    visibility: hidden;
+}
+
+.ui-dialog {
+    box-shadow: 4px 4px 4px #999;
+}
+
+.ui-widget-overlay {
+    background: #FFF;
+    opacity: 0.7;
+}
+
+.ui-widget textarea {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 14px;
+    width: 98%;
+    height: 95%;
+    border: none;
+}
+
+.ui-dialog .ui-dialog-content {
+    padding: 0px;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+    margin: 0px;
+    padding: 0px;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+.ui-widget {
+    font-size: 14px;
+}
+
+.ui-widget .ui-widget {
+    font-size: 0.8em;
+}
+
+#baliseDiv {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 224px;
+}
+
+#baliseDiv:hover {
+    background-position: 0px 224px;
+}
+
+.CD_btn {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    transform: scale(0.8);
+}
+
+#addChekbox {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 128px;
+}
+
+#addRadio {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 96px;
+}
+
+#addRadio:hover {
+    background-position: 0px 96px;
+}
+
+#addChekbox:hover {
+    background-position: 0px 128px;
+}
+
+#addInputText {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 64px;
+}
+
+#addInputText:hover {
+    background-position: 0px 64px;
+}
+
+#addTextarea {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 32px;
+}
+
+#addTextarea:hover {
+    background-position: 0px 32px;
+}
+
+.CD_btn: hover {
+    transform: scale(1);
+}
+
+.CD_btn:hover {
+    transform: scale(1);
+}
+
+#modEbauche {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 512px;
+}
+
+.case {
+    position: relative;
+    top: -2px;
+}
+
+#deselected {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 160px;
+}
+
+#deselected:hover {
+    background-position: 0px 160px;
+}
+
+#leftAlign {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 480px;
+}
+
+#leftAlign:hover {
+    background-position: 0px 480px;
+}
+
+#rightAlign {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 448px;
+}
+
+.CD_btn:hover {
+    background-position-x: 0px;
+}
+
+#rightAlign:hover {
+    background-position: 0px 448px;
+}
+
+#bottomAlign {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 416px;
+}
+
+#bottomAlign:hover {
+    background-position: 0px 416px;
+}
+
+#topAlign {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 384px;
+}
+
+#topAlign:hover {
+    background-position: 0px 384px;
+}
+
+#verticalAjust {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 256px;
+}
+
+#horizontalAjust {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 288px;
+}
+
+#horizontalAjust:hover {
+    background-position: 0px 288px;
+}
+
+#verticalAjust:hover {
+    background-position: 0px 256px;
+}
+
+#outilsLeft {
+    position: absolute;
+    left: 7px;
+    top: 75px;
+    with: 33px;
+    height: 500px;
+    visibility: hidden;
+}
+
+#save {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 546px;
+}
+
+#save:hover {
+    background-position: 0px 546px;
+}
+
+#open {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 578px;
+}
+
+#open:hover {
+    background-position: 0px 578px;
+}
+
+.CD_btnV {
+    width: 32px;
+    height: 32px;
+    display: block;
+    transform: scale(0.8);
+}
+
+#modEbauche:hover {
+    background-position: 0px 512px;
+}
+
+#addManuel {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 608px;
+}
+
+#addManuel:hover {
+    background-position: 0px 608px;
+}
+
+.manuel {
+    height: 18px;
+    width: 18px;
+}
+
+#addZoneNote {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 640px;
+}
+
+#addZoneNote:hover {
+    background-position: 0px 640px;
+}
+
+.noteExercice {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    font-family: arial;
+}
+
+.noteExo {
+    position: relative;
+    width: 50px;
+    height: 35px;
+    line-height: 35px;
+    background-color: yellow;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.noteExoMax {
+    position: relative;
+    width: 50px;
+    height: 35px;
+    line-height: 35px;
+    background-color: yellow;
+    border-radius: 20px;
+    top: -10px;
+    left: 25px;
+    z-index: 1;
+    text-align: center;
+}
+
+.noteExerciceBarre {
+    position: absolute;
+    top: 14px;
+    width: 20px;
+    left: 37px;
+    font-size: 45px;
+    z-index: 3;
+    color: black;
+    transform: rotate(50deg);
+    height: 28px;
+}
+
+#addImage {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 672px;
+}
+
+#addImage:hover {
+    background-position: 0px 672px;
+}
+
+#layerUp {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 704px;
+}
+
+#layerUp:hover {
+    background-position: 0px 704px;
+}
+
+#layerDown {
+    background-image: url("https://coursdesciences.fr/devoir/createDevoir/img/iconsdv.png");
+    background-position: 32px 736px;
+}
+
+#layerDown:hover {
+    background-position: 0px 736px;
+}
+
+#start {
+    position: absolute;
+    left: 7px;
+    top: 40px;
+    with: 33px;
+    height: 33px;
+}
+
+.unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+.ghost-select {
+  display: none;
+  z-index: 9000;
+  position: absolute !important;
+  cursor: default !important;
+}
+.ghost-active {
+  display: block !important;
+}
+
+.ghost-select > span {
+  border: 1px solid #b20e8c;
+  width: 100%;
+  height: 100%;
+  float: left;
+}
