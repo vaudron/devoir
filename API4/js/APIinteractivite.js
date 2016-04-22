@@ -14,6 +14,7 @@ var pages = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 2
 var pageActuelle = 0;
 var question_cloze = [];
 var nbQuestion = 0;
+var dvQuestions //contenu html des questions
 
 if (typeof orderQuestions == "undefined") {
     var orderQuestions = false;
@@ -972,6 +973,7 @@ function ajax_loader_question() {
             if (data != "") {
                 $("#questions").html(data);
             }
+            dvQuestions = $("#questions").html();
         }
     });
 
@@ -1431,11 +1433,12 @@ function setUIProf() {
             $("" + titi).appendTo($("#menuParametre"));
         }
     });
-    $("#menuProf").tabs({
+        $("#menuProf").tabs({
         activate: function (event, ui) {
             var newMenu = ui.newPanel.attr("id");
             var oldMenu = ui.oldPanel.attr("id");
             if ((newMenu == "menuEbauche" || newMenu == "menuCorrection" || newMenu == "menuParametre") && (!dv.modeEbauche)) {
+                /*
                 //retirer toutes traces d'activités
                 $(".correct").removeClass("correct");
                 $(".incorrect").removeClass("incorrect");
@@ -1445,6 +1448,10 @@ function setUIProf() {
                 $("#questions input, #questions textarea").val("");
                 $("[id*=drag]").css("left", "0px").css("top", "0px");
                 //fin
+                */
+                //recharger les questions
+                $("#questions").html(dvQuestions);
+                //ajax_loader_question();
                 $("#outils").show("slide", {
                     direction: "up"
                 }, 700);
@@ -1531,6 +1538,28 @@ function setUIProf() {
                 //$("#bouton0").click();
             }
             if ((oldMenu == "menuEbauche" || oldMenu == "menuCorrection" || oldMenu == "menuParametre") && (newMenu == "menuSuivi")) {
+                //save questions before
+                dv.modeEbauche = false;
+                //maPage.saveAllQuestions();
+                    $("#page [id*=boite][class*=construction]").off("click dblclick mousedown");
+                    $("#page [id*=boite][class*=resizable]").resizable("destroy");
+                    $("#page [id*=boite][class*=draggable]").draggable("destroy");
+                    $("#page [id*=boite][class*=droppable]").droppable("destroy");
+                    $("#page [id*=boite][class*=construction]").removeClass("construction");
+                    $("#page [id*=drag]").each(function() {
+                        $.proxy(maPage.delInteractivite(this.id), maPage);
+                        $(this).removeClass("construction");
+                    });
+                    $("#page").removeClass("hoverDroppable");
+                    $("#page").removeAttr("id");
+                    maPage.selection.removeAll();
+                    $(".commentaire").hide();
+                    $(".question").hide();
+                    $("#question0").show();
+                    $("parametre").text(paramText);
+                    dvQuestions = $("#questions").html();
+                    $("#questions").html(dvQuestions);
+                //ajax_loader_question();
                 $("#outils").hide("slide", {
                     direction: "up"
                 }, 700);
@@ -1539,6 +1568,7 @@ function setUIProf() {
                 }, 700);
                 $("#menuProf").css("height", "640px");
                 $("#devoir").css("height", "670px");
+                /*
                 $("#page [id*=boite][class*=construction]").off("click dblclick mousedown");
                 $("#page [id*=boite][class*=resizable]").resizable("destroy");
                 $("#page [id*=boite][class*=draggable]").draggable("destroy");
@@ -1551,6 +1581,7 @@ function setUIProf() {
                 $("#page").off("mousedown");
                 $("#page").removeAttr("id");
                 $(".commentaire").hide();
+                */
                 //reactiver les boites de dialogues
                 $(".dvDialog").each(function () {
                     eval($(this).text())
@@ -1560,7 +1591,7 @@ function setUIProf() {
                     eval($(this).text())
                 });
                 //$("#bouton0").click();
-                dv.modeEbauche = false;
+                //dv.modeEbauche = false;
                 afficheQuestion(pageActuelle);
 
             }

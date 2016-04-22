@@ -539,7 +539,7 @@ var CreatePage = function() {
         }, this));
         $("#addChekbox").on("click", null, {
             element: "boite",
-            codeHtml: '<div id="boiteindice" type="case" groupe="" note="" penalite="" class="unselectable construction" style="position:absolute;left:0px;top:0px;width:150px"><div class="case"> <input id="caseindice" autocomplete="off" type="checkbox">' + '<label for="caseindice"> </label></div><span style="margin-left: 28px; display: inline-block;">contenu a définir</span><correction><boite></boite><if>nc</if><penalite>0.3</penalite><note>0</note><view></view><comment></comment><code></code></correction></div>'
+            codeHtml: '<div id="boiteindice" type="case" groupe="" note="" penalite="" class="unselectable construction" style="position:absolute;left:0px;top:0px;width:150px"><div class="case"> <input id="caseindice" autocomplete="off" type="checkbox">' + '<label for="caseindice"> </label></div><span style="margin-left: 28px; display: inline-block;">contenu à définir</span><correction><boite></boite><if>nc</if><penalite>0.3</penalite><note>0</note><view></view><comment></comment><code></code></correction></div>'
         }, $.proxy(this.addDiv, this));
         $("#addRadio").on("click", null, {
             element: "boite",
@@ -569,7 +569,7 @@ var CreatePage = function() {
         }, $.proxy(this.addDiv, this));
         $("#addCommentaire").on("click", null, {
             element: "boite",
-            codeHtml: '<div id="boiteindice" class="commentaire unselectable  construction" style="position:absolute;left:0px;top:0px;width:150px;height:18px"><span>contenu a définir</span></div>'
+            codeHtml: '<div id="boiteindice" class="commentaire unselectable  construction" style="position:absolute;left:0px;top:0px;width:150px;height:18px"><span>contenu à définir</span></div>'
         }, $.proxy(this.addDiv, this));
         $("#addDrop").on("click", null, {
             element: "boite",
@@ -1419,6 +1419,7 @@ var CreatePage = function() {
         $(".question").hide();
         $("#question0").show();
         $("parametre").text(paramText);
+        dvQuestions = $("#questions").html();
         var contenuHtml = encodeURIComponent($("#questions").html());
         var toto = contenuHtml.length;
         //réactivation des vénements
