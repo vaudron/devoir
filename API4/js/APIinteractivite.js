@@ -1065,7 +1065,8 @@ function afficheQuestion(num) {
 
                 if (dv.modeEbauche) {
                     $("#page [id*=boite][class*=construction]").off("click dblclick mousedown");
-                    $("#page [id*=boite][class*=resizable]").resizable("destroy");
+                    $("#page [id*=boite][class*=resizable]").filter(".ui-resizable").resizable("destroy");
+                    $("#page [id*=boite][class*=resizable]").removeClass("ui-resizable-autohide");
                     $("#page [id*=boite][class*=draggable]").draggable("destroy");
                     $("#page [id*=boite][class*=droppable]").droppable("destroy");
                     $("#page [id*=boite][class*=construction]").removeClass("construction");
@@ -1542,7 +1543,8 @@ function setUIProf() {
                 dv.modeEbauche = false;
                 //maPage.saveAllQuestions();
                     $("#page [id*=boite][class*=construction]").off("click dblclick mousedown");
-                    $("#page [id*=boite][class*=resizable]").resizable("destroy");
+                    $("#page [id*=boite][class*=resizable]").filter(".ui-resizable").resizable("destroy");
+                    $("#page [id*=boite][class*=resizable]").removeClass("ui-resizable-autohide");
                     $("#page [id*=boite][class*=draggable]").draggable("destroy");
                     $("#page [id*=boite][class*=droppable]").droppable("destroy");
                     $("#page [id*=boite][class*=construction]").removeClass("construction");

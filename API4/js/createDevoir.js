@@ -543,7 +543,7 @@ var CreatePage = function() {
         }, $.proxy(this.addDiv, this));
         $("#addRadio").on("click", null, {
             element: "boite",
-            codeHtml: '<div id="boiteindice" type="radio" class="unselectable construction" type="radio" style="position:absolute;left:0px;top:0px;width:150px"><div class="case"> <input id="caseindice" name="groupe" autocomplete="off" type="radio">' + '<label for="caseindice"> </label></div><span style="margin-left: 28px; display: inline-block;">contenu a définir</span><correction><boite></boite><if>nc</if><bareme>0</bareme><note>0</note><view></view><comment></comment><manuel></manuel><code></code></correction></div>'
+            codeHtml: '<div id="boiteindice" type="radio" class="unselectable construction" type="radio" style="position:absolute;left:0px;top:0px;width:150px"><div class="case"> <input id="caseindice" name="groupe" autocomplete="off" type="radio">' + '<label for="caseindice"> </label></div><span style="margin-left: 28px; display: inline-block;">contenu à définir</span><correction><boite></boite><if>nc</if><bareme>0</bareme><note>0</note><view></view><comment></comment><manuel></manuel><code></code></correction></div>'
         }, $.proxy(this.addDiv, this));
         $("#addInputText").on("click", null, {
             element: "boite",
@@ -602,7 +602,7 @@ var CreatePage = function() {
         }, $.proxy(this.addDiv, this));
         $("#addVolet").on("click", null, {
             element: "boite",
-            codeHtml: '<div class="unselectable construction" id="boiteindice" title="boiteindice" style="position: absolute; left: 0px; top: 0px; width: 200px; z-indice: auto; right: auto; bottom: auto; height: 85px;"><span></span><div id="voletindice" style="height:100%;width:100%;background-color:rgba(206,206,206,0.7)"></div> <textarea id="inputHtmlindice" class="savable" style="display:none"></textarea><script class="ebauche">$("#voletindice").css("height", "100%").css("width", "100%").css("left","0px").css("top","0px");</script>    <script class="boiteindice interactivite">        $("#voletindice").resizable({handles: "e"});</script><script>$("#inputHtmlindice").change(function (event) {$("#voletindice").attr("style",$("#inputHtmlindice").val()); eval($("script.boiteindice").text());}).on("save", function (event) { $("#inputHtmlindice").val($("#voletindice").attr("style"));});</script></div>'
+            codeHtml: '<div class="unselectable construction" id="boiteindice" style="position: absolute; left: 0px; top: 0px; width: 200px; z-indice: auto; right: auto; bottom: auto; height: 85px;"><span></span><div id="voletindice" style="height:100%;width:100%;background-color:rgba(206,206,206,0.7)"></div> <textarea id="inputHtmlindice" class="savable" style="display:none"></textarea><script class="ebauche">$("#voletindice").css("height", "100%").css("width", "100%").css("left","0px").css("top","0px");</script>    <script class="boiteindice interactivite">        $("#voletindice").resizable({handles: "e"});</script><script>$("#inputHtmlindice").change(function (event) {$("#voletindice").attr("style",$("#inputHtmlindice").val()); eval($("script.boiteindice").text());}).on("save", function (event) { $("#inputHtmlindice").val($("#voletindice").attr("style"));});</script></div>'
         }, $.proxy(this.addDiv, this));
         $("#addCloze").on("click", null, {
             element: "boite",
@@ -1176,6 +1176,8 @@ var CreatePage = function() {
                 .resizable({
                     //grid: (10, 10),
                     alsoResize: ".selected",
+                    handles : "all",
+                    autoHide: true,
                     resize: $.proxy(function(event, ui) {
                         event.stopPropagation();
                         var elementMaitre = event.target;
