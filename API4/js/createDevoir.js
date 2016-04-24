@@ -1420,6 +1420,7 @@ var CreatePage = function() {
         maPage.selection.removeAll();
         $(".commentaire").hide();
         $(".question").hide();
+        $("#loaser").show();
         $("#question0").show();
         $("parametre").text(paramText);
         dvQuestions = $("#questions").html();
@@ -1435,6 +1436,7 @@ var CreatePage = function() {
             dataType: "html",
             data: "code=" + contenuHtml + "&path=" + window.location.pathname,
             success: $.proxy(function(data) {
+                $("#loaser").hide();
                 afficheQuestion(pageActuelle);
                 $("#ui-id-2").trigger("click");
                 $("#page .commentaire").show();
