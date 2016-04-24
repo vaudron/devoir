@@ -178,8 +178,6 @@ var cloze = function (selectorDonnees, selectorRendu) {
                         $(this).addClass("clozeIncorrect");
                     }
                 });
-        
-        
         this.note = note;
         this.max = max;
         var zoneResult=$(selecteurResultat).parents(".page").find("[id*=noteq]").attr("id");

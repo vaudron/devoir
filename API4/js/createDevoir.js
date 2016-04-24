@@ -1406,7 +1406,8 @@ var CreatePage = function() {
     this.saveAllQuestions = function() {
         //désactivation des événements sur la page en cours
         $("#page [id*=boite][class*=construction]").off("click dblclick mousedown");
-        $("#page [id*=boite][class*=resizable]").resizable("destroy");
+        $("#page [id*=boite][class*=resizable]").filter(".ui-resizable").resizable("destroy");
+        $("#page [id*=boite][class*=resizable]").removeClass("ui-resizable-autohide");
         $("#page [id*=boite][class*=draggable]").draggable("destroy");
         $("#page [id*=boite][class*=droppable]").droppable("destroy");
         $("#page [id*=boite][class*=construction]").removeClass("construction");
@@ -1450,7 +1451,8 @@ var CreatePage = function() {
     this.delInteractivite = function(selecteur) {
 
         $(selecteur).off("click dblclick mousedown");
-        $(selecteur + " [class*=resizable]").resizable("destroy");
+        $(selecteur + " [class*=resizable]").filter(".ui-resizable").resizable("destroy");
+        $(selecteur + " [class*=resizable]").removeClass("ui-resizable-autohide");
         $(selecteur + " [class*=draggable]").draggable("destroy");
         $(selecteur + " [class*=droppable]").droppable("destroy");
         $(selecteur).removeClass("construction");

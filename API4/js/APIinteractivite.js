@@ -971,9 +971,9 @@ function ajax_loader_question() {
         dataType: "html",
         success: function (data) {
             if (data != "") {
+                dvQuestions = data;
                 $("#questions").html(data);
             }
-            dvQuestions = $("#questions").html();
         }
     });
 
