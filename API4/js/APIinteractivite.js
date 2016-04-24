@@ -21,8 +21,14 @@ if (typeof orderQuestions == "undefined") {
 }
 
 function finDS() {
-    if (confirm("Avez-vous vraiment terminé votre devoir ?")) {
-        sendDS();
+    if(modeEbauche && !dv.modeEbauche){
+        correction();
+    }else{
+        if(!modeEbauche){
+            if (confirm("Avez-vous vraiment terminé votre devoir ?")) {
+                sendDS();
+            }
+        }
     }
 }
 
