@@ -6,28 +6,32 @@
     <title>test</title>
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <link href="/devoirTest/noENT/API4/css/defaut.css" rel="stylesheet" type="text/css" />
-    <link href="/devoirTest/noENT/API4/css/createDevoir.css" rel="stylesheet" type="text/css" />
-    <link href="/devoirTest/noENT/API4/css/mathquill.css" rel="stylesheet" type="text/css" />
+    <link href="/devoir/API5/css/defaut.css" rel="stylesheet" type="text/css" />
+    <link href="/devoir/API5/css/createDevoir.css" rel="stylesheet" type="text/css" />
+    <link href="/devoir/API5/css/mathquill.css" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="/devoirTest/noENT/API4/js/jquery.ui.touch-punch.min.js"></script>
-    <script src="/devoirTest/noENT/API4/js/jcanvas.min.js"></script>
-    <script src="/devoirTest/noENT/API4/js/common.js"></script>
-    <script src="/devoirTest/noENT/API4/js/commonControlLibrary.min.js"></script>
+    <script src="/devoir/API5/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="/devoir/API5/js/jcanvas.min.js"></script>
+    <script src="/devoir/API5/js/mathquill.min.js" type="text/javascript"></script>
+    <script src="/devoir/API5/js/lodash.min.js" type="text/javascript"></script>
+    <script src="/devoir/API5/js/common.js"></script>
+    <script src="/devoir/API5/js/commonControlLibrary.min.js"></script>
     <script src="https://leducdenormandie.itslearning.com/UI/Controls/editor/CKeditor/ckeditor.js?t=DBAA2"></script>
     <script src="https://leducdenormandie.itslearning.com/UI/Controls/editor/CKeditor/adapters/jquery.js"></script>
-    <script src="/devoirTest/noENT/API4/katex/katex.min.js"></script>
-    <script src="/devoirTest/noENT/API4/outils/cloze.js"></script>
-    <link href="/devoirTest/noENT/API4/katex/katex.min.css" rel="stylesheet" type="text/css" />
+    <script src="/devoir/API5/katex/katex.min.js"></script>
+    <script src="/devoir/API5/outils/cloze.js"></script>
+    <script src="/devoirTest/noENT/API4/js/jqColorPicker.min.js"></script>
+    <link href="/devoir/API5/katex/katex.min.css" rel="stylesheet" type="text/css" />
     <script>
     var chemin1 = window.location.pathname;
-    var chemin = chemin1.replace(/\/devoirTest/,"../../..");
+    // chemin doit pointer vers le répertoire
+    var chemin = chemin1.replace(/\/devoir/,"../../");
     var tabChemin=chemin.split("/");
     tabChemin.pop();
     tabChemin.push("");
     chemin = tabChemin.join("/");
     var dvPath = chemin.replace(/\.\./,"htdocs");
-    var API="/devoirTest/noENT/API4";
+    var API="/devoir/API5";
     </script>
 </head>
 
@@ -59,7 +63,7 @@
             <div id="loader" style="z-index:1000;background-color: white;">
                 <p style="align-text:center" id="loader_text">En cours de chargement ...
                 </p>
-                <p><img alt="" src="/devoirTest/noENT/API4/img/ajax-loader.gif" /></p>
+                <p><img alt="" src="/devoir/API5/img/ajax-loader.gif" /></p>
             </div>
             <div id="entete2">
                 <div class="loadSVG" nomFichier="img/entete_devoir2.svg"></div>
@@ -68,8 +72,8 @@
             <div id="ebauche">
 				<div id="outilsProf"></div>
 				
-                <div id="questions">
-                <parametre style="display:none">var heure = 0;var minute = 20;var seconde = 0;var orderQuestions = false;var premiereEssaiCorrectionVisible = true;var modeEbauche = true;var  multiSoumission=false;var typeClasse=3;</parametre>  <script>var paramText=$('parametre').text();eval($('parametre').text());$('parametre').text("");
+                <div id="questions" tabindex="0">
+                <parametre style="display:none">var heure = 0;var minute = 20;var seconde = 0;var orderQuestions = false;var premiereEssaiCorrectionVisible = true;var  multiSoumission=false;var typeClasse=3;</parametre>  <script>var paramText=$('parametre').text();eval($('parametre').text());$('parametre').text("");
 </script>
                 <div style="display: block;" class="question choices-border" id="question0">
                     <div id="page" style="" class="page"></div>
@@ -81,13 +85,15 @@
             </div>
         </form>
     </div>
+    <div id="aide"></div>
 	<script>$("#devoirID").val("2016"+chemin1);</script>
-    <script src="/devoirTest/noENT/API4/prof/APIProf.js" type="text/javascript"></script>
-    <script src="/devoirTest/noENT/API4/js/noENT.js" type="text/javascript"></script>
-    <script src="/devoirTest/noENT/API4/js/correctionDevoir.js" type="text/javascript"></script>
-    <script src="/devoirTest/noENT/API4/js/createDevoir.js" type="text/javascript"></script>
-    <script src="/devoirTest/noENT/API4/js/APIinteractivite.js" type="text/javascript"></script>
-    <script src="/devoirTest/noENT/API4/js/mathquill.js" type="text/javascript"></script>
+	<script src="/devoir/API5/js/outils.js" type="text/javascript"></script>
+    <script src="/devoir/API5/prof/APIProf.js" type="text/javascript"></script>
+    <script src="/devoir/API5/js/noENT.js" type="text/javascript"></script>
+    <script src="/devoir/API5/js/correctionDevoir.js" type="text/javascript"></script>
+    <script src="/devoir/API5/js/createDevoir.js" type="text/javascript"></script>
+    <script src="/devoir/API5/js/APIinteractivite.js" type="text/javascript"></script>
+    
 </body>
 
 </html>

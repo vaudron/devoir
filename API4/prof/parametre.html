@@ -7,10 +7,6 @@
     <h1 style="display: inline-block;">Paramètrage de l'épreuve</h1>
     <div style="border: 1px solid rgb(153, 153, 153); border-radius: 10px; padding: 10px; position: relative;">
         <div style="background-color: white; position: absolute; top: -16px; left: 20px; padding: 5px;">Paramètres obligatoires :</div>
-        <div class="case" style="position: relative; top: 5px; left: 5px;">
-            <input id="pEbauche" autocomplete="off" type="checkbox" style="position:relative;top:-1em">
-            <label for="pEbauche"></label><span style="width: 400px; display: inline-block;margin-left:20px">mode ébauche (pas d'identification, l'utilisateur a le profil prof)</span>
-        </div>
         <div class="" style="position: relative; left: 5px; margin-top: 20px;">
             <span>Niveau des élèves concernés :</span>
             <select id="pClasse" style="padding: 0px; background-color: white;" class="text_eleve ">
@@ -53,9 +49,6 @@
 
     </div>
     <script>
-        if (modeEbauche) {
-            $("#pEbauche").prop("checked", true);
-        }
         if (premiereEssaiCorrectionVisible) {
             $("#pViewCorrection").prop("checked", true);
         }
@@ -69,10 +62,10 @@
         $("#pMinute").val(minute);
         $("#pSeconde").val(seconde);
         $("#pClasse").val(typeClasse);
-        $("#pEbauche").on("change", function (evt) {
-            modeEbauche = (($(this).is(":checked")) ? true : false);
-            dvSetParams("modeEbauche");
-        });
+        //$("#pEbauche").on("change", function (evt) {
+            //modeEbauche = (($(this).is(":checked")) ? true : false);
+            //dvSetParams("modeEbauche");
+        //});
         $("#pViewCorrection").on("change", function (evt) {
             premiereEssaiCorrectionVisible = ($(this).is(":checked")) ? true : false;
             dvSetParams("premiereEssaiCorrectionVisible");
@@ -104,9 +97,6 @@
 
         function dvSetParams(variable) {
             switch (variable) {
-            case "modeEbauche":
-                paramText = paramText.replace(/modeEbauche *=[\w\d ]*;/, "modeEbauche = " + modeEbauche + ";");
-                break;
             case "premiereEssaiCorrectionVisible":
                 paramText = paramText.replace(/premiereEssaiCorrectionVisible *=[\w\d ]*;/, "premiereEssaiCorrectionVisible = " + premiereEssaiCorrectionVisible + ";");
                 break;

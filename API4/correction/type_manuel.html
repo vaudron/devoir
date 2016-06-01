@@ -1,0 +1,88 @@
+<h1 style="margin: 0px;">Correction manuelle</h1>
+<div style="display: inline-block; position: relative; top: -5px;">Commentaire
+    <br>si faux :</div>
+<div style="display: inline-block; position: relative; top: -17px;">
+    <select id="mcComment" class="commentaire" style="color:black;border-radius: 7px;background-color: white;">
+    </select>
+</div>
+<div>
+    <span>barème : </span>
+    <input style="width:50px;text-align:center;height:2em;" type="number" step="0.1" min="0" id="mcBareme" class="text_eleve"><span> point(s) attribué(s) à la réponse juste.</span>
+</div>
+<div class="mcManuel" style="position: relative; top: 20px;">
+    Indiquer la zone sur laquelle porte l'évaluation :
+    <select id="mcManuel" style="color:black;border-radius: 7px;background-color: white;">
+    </select>
+</div>
+<script>
+var textOption = '<option selected="selected" value="">Pas de commentaire</option>';
+$("#page .commentaire").each(function() {
+    var valeur = $(this).attr("id");
+    var txt = $(this).text().substring(0, 30);
+    textOption += '<option value="' + valeur + '">' + txt + '</option>';
+});
+$("#menuCorrection #mcComment").html($.parseHTML(textOption));
+$("#menuCorrection #mcComment option").on("mouseenter", function(event) {
+    var valeur = $(this).attr("value").substring(5);
+    $("#boite" + valeur).addClass("partiel");
+});
+$("#menuCorrection #mcComment option").on("mouseleave", function(event) {
+    var valeur = $(this).attr("value").substring(5);
+    $("#boite" + valeur).removeClass("partiel");
+});
+textOption = '<option selected="selected" value="">Aucune</option>';
+$("#page [id*=boite]").each(function() {
+    var valeur = $(this).attr("id");
+    textOption += '<option value="' + valeur + '">' + valeur + '</option>';
+});
+$("#menuCorrection #mcManuel").html($.parseHTML(textOption));
+$("#menuCorrection #mcManuel option").on("mouseenter", function(event) {
+    var valeur = $(this).attr("value").substring(5);
+    $("#boite" + valeur).addClass("partiel");
+});
+$("#menuCorrection #mcManuel option").on("mouseleave", function(event) {
+    var valeur = $(this).attr("value").substring(5);
+    $("#boite" + valeur).removeClass("partiel");
+});
+$("#menuCorrection #mcBareme").on("change", function(event) {
+    corrige.setCode("manuelle");
+});
+$("#menuCorrection #mcManuel").on("change", function(event) {
+    var txt = $(this).val();
+    if (txt != "") {
+        $("#page ." + txt).removeClass("partiel");
+    }
+    $("#page .correct").removeClass("correct");
+    if (txt != "") {
+        $("#" + txt).addClass("correct");
+    }
+    corrige.setCode("manuelle");
+});
+$("#menuCorrection #mcComment").on("change", function(event) {
+    var txt = $(this).val();
+    if (txt != "") {
+        $("#page ." + txt).removeClass("partiel");
+    }
+    $("#page .incorrect").removeClass("incorrect");
+    if (txt != "") {
+        $("#" + txt).addClass("incorrect");
+    }
+    corrige.setCode("manuelle");
+});
+
+
+$("#menuCorrection #mcAdd").on("click", function(event) {
+    var indice = 0;
+    $("#menuCorrection #mcTriable").find(".test").each(function() {
+        var i = parseInt($(this).attr("id").substring(4));
+        if (i > indice) {
+            indice = i;
+        }
+    });
+    indice += 1;
+    var html = '<div class="etape"><img src="/devoir/API4/correction/img/algo.svg"><div id="testindice" class="test rouge">?</div><div id="mcRegindice" class="reg"><span>Expression régulière</span><textarea  id="mcRegExpindice" class="regExp">//i</textarea></div><div class="param"><span>note : </span><input class="note text_eleve" type="number" step="0.1" min="0"  id="mcNoteindice" style="width:50px;text-align:center;height:1.8em;"><p>commentaire :</p><p><textarea id="mcCommentaireindice" class="commentaire" style="width: 250px;heigth: 56px;"></textarea></p></div><div id="mcSupindice" class="sup"><img  src="https://coursdesciences.fr/devoir/API4/delete16.png"> </div> </div>';
+    html = html.replace(/indice/g, "" + indice);
+    $("#menuCorrection #mcTriable").append(html);
+    corrige.setCode(mcMode);
+});
+</script>

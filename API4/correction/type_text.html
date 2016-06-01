@@ -33,87 +33,60 @@
     </select>
 </div>
 <script>
-    var mcMode = "text";
-    $("#mcAdd").append('<img src="'+site+API+'/img/Add.png">');
-    $(".etape").prepend('<img src="'+site+API+'/img/algoDebut.svg">');
-    $(".correctionDvTempTypeText").prepend('<img src="'+site+API+'/img/algoFin.svg">');
-    $("#menuCorrection .mcManuel").hide();
-    var textOption = '<option selected="selected" value="">Pas de commentaire</option>';
-    $("#page .commentaire").each(function () {
-        var valeur = $(this).attr("id");
-        var txt = $(this).text().substring(0, 30);
-        textOption += '<option value="' + valeur + '">' + txt + '</option>';
+function menuCorrectionUpDatemcManuel() {
+
+    var txtOp = '<option value="">Choisir une zone</option>';
+    idManuel = $(maPage.selection.objets[0]).find("manuel").text().substring(6);
+    if (idManuel != "" && idManuel != "null") {
+        txtOp += '<option selected="selected" value="' + idManuel + '">manuel' + idManuel + '</option>';
+        $("#boite" + idManuel).addClass('correct');
+        $("#page .partiel").removeClass('partiel');
+    }
+    $("#page [type=manuelle]").each(function() {
+        var valeur = $(this).attr("id").substring(5);
+        var txt = "manuel" + valeur;
+        txtOp += '<option value="' + valeur + '">' + txt + '</option>';
     });
-    $("#menuCorrection #mcComment").html($.parseHTML(textOption));
-    $("#menuCorrection #mcComment option").on("mouseenter", function (event) {
-        var valeur = $(this).attr("value").substring(5);
+    $("#menuCorrection #mcManuel").html($.parseHTML(txtOp));
+    $("#menuCorrection #mcManuel option").on("mouseenter", function(event) {
+        var valeur = $(this).attr("value");
         $("#boite" + valeur).addClass("partiel");
     });
-    $("#menuCorrection #mcComment option").on("mouseleave", function (event) {
+    $("#menuCorrection #mcManuel option").on("mouseleave", function(event) {
+        var valeur = $(this).attr("value");
+        $("#boite" + valeur).removeClass("partiel");
+    });
+}
+var mcMode = "text";
+$("#menuCorrection .mcManuel").hide();
+$("#menuCorrection #mcManuel").on("change", function(event) {
+    var id = $(this).val();
+    // suppression du comportement normal de evaluateManuel puisque c'est la zone de text qui le gère...
+    $("#boite" + $(maPage.selection.objets[0]).find("manuel").text().substring(6)).remove();
+    $("#boite" + id).find("correction").remove();
+    $("#boite" + id).attr("type", "manuelleSup");
+    corrige.setCode("manuel");
+    menuCorrectionUpDatemcManuel();
+});
+var textOption = '<option selected="selected" value="">Pas de commentaire</option>';
+$("#page .commentaire").each(function() {
+    var valeur = $(this).attr("id");
+    var txt = $(this).text().substring(0, 30);
+    textOption += '<option value="' + valeur + '">' + txt + '</option>';
+});
+$("#menuCorrection #mcComment").html($.parseHTML(textOption));
+
+$("#menuCorrection #mcComment option")
+    .on("mouseenter", function(event) {
+        var valeur = $(this).attr("value").substring(5);
+        $("#boite" + valeur).addClass("partiel");
+    })
+    .on("mouseleave", function(event) {
         var valeur = $(this).attr("value").substring(5);
         $("#boite" + valeur).removeClass("partiel");
     });
-    $("#menuCorrection #mcEm").on("click", function (event) {
-        if ($("#menuCorrection #mcEm:checked").length > 0) {
-            mcMode = "manuel";
-            $("#menuCorrection .contenu").hide();
-            $("#menuCorrection .mcManuel").show();
-            txtOp = '<option selected="selected" value="">Choisir une zone</option>';
-            $("#page [id*=evalProf]").each(function () {
-                var valeur = $(this).attr("id").substring(8);
-                var txt = "manuel" + valeur;
-                txtOp += '<option value="' + valeur + '">' + txt + '</option>';
-            });
-            $("#menuCorrection #mcManuel").html($.parseHTML(txtOp));
-            $("#menuCorrection #mcManuel option").on("mouseenter", function (event) {
-                var valeur = $(this).attr("value");
-                $("#boite" + valeur).addClass("partiel");
-            });
-            $("#menuCorrection #mcManuel option").on("mouseleave", function (event) {
-                var valeur = $(this).attr("value");
-                $("#boite" + valeur).removeClass("partiel");
-            });
-            corrige.setCode(mcMode);
-        } else {
-            mcMode = "text";
-            $("#menuCorrection .contenu").show();
-            $("#menuCorrection .mcManuel").hide();
-            corrige.setCode(mcMode);
-        }
-    });
-    $("#menuCorrection #mcManuel").on("change", function (event) {
-        corrige.setCode("manuel");
-    });
-    $("#mcTriable").sortable({
-        axis: "y",
-        containment: "#mcTriable",
-        tolerance: "pointer",
-        stop: function (event) {
-            corrige.setCode(mcMode);
-        }
-    });
-    $("#menuCorrection").delegate(".test", "mouseenter", function (event) {
-        $(this).next().show();
-    });
-    $("#menuCorrection").delegate(".reg", "mouseleave", function (event) {
-        $(this).hide();
-        corrige.setCode(mcMode);
-    });
-    $("#menuCorrection").delegate(".sup", "click", function (event) {
-        $(this).parent().remove();
-        corrige.setCode(mcMode);
-    });
-    $("#menuCorrection #mcTriable").delegate(".note", "change", function (event) {
-        $(this).parent().prev().trigger("mouseleave");
-    });
-    $("#menuCorrection #mcTriable").delegate(".commentaire", "change", function (event) {
-        corrige.setCode(mcMode);
-    });
-
-    $("#menuCorrection #mcBareme").on("change", function (event) {
-        corrige.setCode(mcMode);
-    });
-    $("#menuCorrection #mcComment").on("change", function (event) {
+$("#menuCorrection #mcComment")
+    .on("change", function(event) {
         var txt = $(this).val();
         $("#page .incorrect").removeClass("incorrect");
         if (txt != "") {
@@ -121,20 +94,99 @@
         }
         corrige.setCode(mcMode);
     });
-
-
-    $("#menuCorrection #mcAdd").on("click", function (event) {
+$("#menuCorrection #mcBareme")
+    .on("change", function(event) {
+        corrige.setCode(mcMode);
+    });
+//menuCorrectionUpDatemcManuel();
+$("#menuCorrection #mcEm").on("click", function(event) {
+    if ($("#menuCorrection #mcEm:checked").length > 0) {
+        mcMode = "manuel";
+        $("#menuCorrection .contenu").hide();
+        $("#menuCorrection .mcManuel").show();
+        $("#menuCorrection #mcComment")
+            .val($(maPage.selection.objets[0]).find("comment").text())
+            .trigger("change");
+        /*
+        txtOp = '<option selected="selected" value="">Choisir une zone</option>';
+        $("#page [id*=evalProf]").each(function () {
+            var valeur = $(this).attr("id").substring(8);
+            var txt = "manuel" + valeur;
+            txtOp += '<option value="' + valeur + '">' + txt + '</option>';
+        });
+        $("#menuCorrection #mcManuel").html($.parseHTML(txtOp));
+        */
+        menuCorrectionUpDatemcManuel();
+        var id = $(maPage.selection.objets[0]).attr("id");
+        var boite = $("#" + id).find("boite").text();
+        var iff = $("#" + id).find("if").text();
+        var bareme = parseFloat($("#" + id).find("bareme").text());
+        var note = $("#" + id).find("note").text();
+        var view = $("#page span[id*=q]").attr("id");
+        $("#" + id).find("view").text(view);
+        var comment = $("#" + id).find("comment").text();
+        var code = $("#" + id).find("code").text();
+        var manuel = $("#" + id).find("manuel").text();
+        if (manuel != "manuel") {
+            $("mcManuel").val(manuel.substring(6));
+        }
+        $("#mcBareme").val(bareme);
+        $("#mcComment").val(comment);
+        corrige.setCode(mcMode);
+    } else {
+        $("#boite" + $(maPage.selection.objets[0]).find("manuel").text().substring(6)).remove();
+        $(maPage.selection.objets[0]).find("manuel").text("");
+        $(maPage.selection.objets[0]).find("code").text("");
+        menuCorrectionUpDatemcManuel();
+        mcMode = "text";
+        $("#menuCorrection .contenu").show();
+        $("#menuCorrection .mcManuel").hide();
+        corrige.setCode(mcMode);
+    }
+});
+$("#mcTriable").sortable({
+    axis: "y",
+    containment: "#mcTriable",
+    tolerance: "pointer",
+    stop: function(event) {
+        corrige.setCode(mcMode);
+    }
+});
+$("#menuCorrection")
+    .delegate(".test", "mouseenter", function(event) {
+        $(this).next().show();
+    })
+    .delegate(".reg", "mouseleave", function(event) {
+        $(this).hide();
+        corrige.setCode(mcMode);
+    })
+    .delegate(".sup", "click", function(event) {
+        $(this).parent().remove();
+        corrige.setCode(mcMode);
+    });
+$("#menuCorrection #mcTriable")
+    .delegate(".note", "change", function(event) {
+        $(this).parent().prev().trigger("mouseleave");
+    })
+    .delegate(".commentaire", "change", function(event) {
+        corrige.setCode(mcMode);
+    });
+$("#menuCorrection #mcAdd")
+    .on("click", function(event) {
         var indice = 0;
-        $("#menuCorrection #mcTriable").find(".test").each(function () {
+        $("#menuCorrection #mcTriable").find(".test").each(function() {
             var i = parseInt($(this).attr("id").substring(4));
             if (i > indice) {
                 indice = i;
             }
         });
         indice += 1;
-        var html = '<div class="etape"><img src="'+site+API+'/correction/img/algo.svg"><div id="testindice" class="test rouge">?</div><div id="mcRegindice" class="reg"><span>Expression régulière</span><textarea  id="mcRegExpindice" class="regExp">//i</textarea></div><div class="param"><span>note : </span><input class="note text_eleve" type="number" step="0.1" min="0"  id="mcNoteindice" style="width:50px;text-align:center;height:1.8em;"><p>commentaire :</p><p><textarea id="mcCommentaireindice" class="commentaire" style="width: 250px;heigth: 56px;"></textarea></p></div><div id="mcSupindice" class="sup"><img  src="'+site+API+'/img/delete16.png"> </div> </div>';
+        var html = '<div class="etape"><img src="' + site + API + '/correction/img/algo.svg"><div id="testindice" class="test rouge">?</div><div id="mcRegindice" class="reg"><span>Expression régulière</span><textarea  id="mcRegExpindice" class="regExp">//i</textarea></div><div class="param"><span>note : </span><input class="note text_eleve" type="number" step="0.1" min="0"  id="mcNoteindice" style="width:50px;text-align:center;height:1.8em;"><p>commentaire :</p><p><textarea id="mcCommentaireindice" class="commentaire" style="width: 250px;heigth: 56px;"></textarea></p></div><div id="mcSupindice" class="sup"><img  src="' + site + API + '/img/delete16.png"> </div> </div>';
         html = html.replace(/indice/g, "" + indice);
         $("#menuCorrection #mcTriable").append(html);
         corrige.setCode(mcMode);
-    });
+    })
+    .append('<img src="' + site + API + '/img/Add.png">');
+$(".etape").prepend('<img src="' + site + API + '/img/algoDebut.svg">');
+$(".correctionDvTempTypeText").prepend('<img src="' + site + API + '/img/algoFin.svg">');
 </script>

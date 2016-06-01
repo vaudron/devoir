@@ -1,0 +1,314 @@
+<style>
+.cp-color-picker{
+	z-index: 100;
+}
+#dv-css {
+width: 350px;
+font-family: verdana;
+font-size: 11px;
+background-color: #535353;
+color: #fff;
+padding: 10px;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+position: absolute;
+left: 7px;
+top: 24px;
+z-index: 10;
+}
+
+#dv-css fieldset{
+	border-radius: 10px;
+}
+
+#dv-css h1 {
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 7px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+#dv-border-style,
+#dv-overflow {
+    height: 18px;
+    margin: 5px;
+    padding: 0px;
+    border: 1px inset #999;
+}
+
+.number {
+    width: 4em;
+    height: 2.5em;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#dv-border-color,
+#dv-bg-color,
+#dv-ombre-color {
+    height: 25px;
+    width: 25px;
+    border: medium none;
+    box-shadow: 2px 2px 5px #000;
+    border-radius: 7px;
+    font-size: 0px;
+    cursor: pointer;
+    outline: medium none;
+    background-color: rgb(177, 147, 134);
+    color: rgb(34, 34, 34);
+}
+#meCss{
+    position: relative;
+left: -20px;
+background-color: #535353;
+color: white;
+padding-left: 40px;
+height: 3px;
+width: 500px;
+top: 10px;
+}
+#meCss>div{
+    position: relative;
+top: -19px;
+z-index: 100;
+overflow: visible;
+background-color: #535353;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+width: 10em;
+height: 20px;
+text-align: center;
+cursor: pointer;
+left: -30px;
+}
+</style>
+<div id="meCss"><div id="dv-mf"><span style="position: relative; top: 4px;">Mise en forme</span></div></div>
+<div style="display:none" id="dv-css" class="masquer">
+    <div id="dv-css1">
+        <div>
+            <fieldset>
+                <legend>Couleur du fond</legend>
+                <input class="color dv-refresh" placeholder="-" type="text" id="dv-bg-color">
+            </fieldset>
+        </div>
+        <div>
+            <fieldset class="dv-bordures">
+                <legend>Bordures</legend>
+                <div class="inline">
+                    épaisseur :
+                    <input class="number dv-refresh" id="dv-border-weight" min="0" max="100" type="number" value="0">
+                </div>
+                <div class="inline border">style :
+                    <select id="dv-border-style" class="dv-refreh">
+                        <option value="none">aucun</option>
+                        <option value="solid">plein</option>
+                        <option value="dotted">pointillés</option>
+                        <option value="dashed">tirets</option>
+                        <option value="inset">relief enfoncé</option>
+                        <option value="outset">relief extrudé</option>
+                    </select>
+                </div>
+                <div class="border inline">
+                    <span style="position: relative;top: 5px;">couleur   : </span>
+                    <input placeholder="-" type="text" class="color dv-refresh" id="dv-border-color">
+                </div>
+                <div class="inline">
+                    <span style="position: relative;top: 5px;margin-left: 10px;">coin arondi : </span>
+                    <input style="margin-bottom: 0px;top: 5px;position: relative;" class="number dv-refresh" id="dv-border-radius" min="0" max="100" type="number" value="0">
+                </div>
+                <div class="" style="position: relative;top: 10px;margin-bottom: 10px;">
+                    <span style="position: relative;top: 5px;">Marge intérieure   : </span>
+                    <input placeholder="-" type="number" min="0" step="1" class="number dv-refresh" id="dv-marge">
+                </div>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>Ombre portée</legend>
+                <div class="inline">
+                    <span style="position: relative;top: 5px;">couleur : </span>
+                    <input placeholder="-" type="text" class="color dv-refresh" id="dv-ombre-color">
+                </div>
+                <div class="inline" style="position: relative;top: 5px;margin-left: 10px;">
+                    épaisseur :
+                    <input class="number dv-refresh" id="dv-shadow-weight" min="0" max="100" type="number" value="0">
+                </div>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>Rotation</legend>
+                <input class="number dv-refresh" id="dv-rotate" min="-360" max="360" step="5" type="number" value="0">
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>débordement</legend>
+                <select id="dv-overflow" class="dv-refreh">
+                    <option value="visible">afficher</option>
+                    <option value="hidden">masquer</option>
+                    <option value="auto">afficher à l'aide des barres de défilement</option>
+                </select>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<script>
+$(".color").colorPicker({
+    margin: '-30px 0px 0px 30px',
+    doRender: true,
+    body: $("#dv-css1")[0],
+
+    buildCallback: function($elm) {
+        var colorInstance = this.color,
+            colorPicker = this;
+
+        $elm.prepend('<div class="cp-panel">' +
+            'R <input type="text" class="cp-r" /><br>' +
+            'G <input type="text" class="cp-g" /><br>' +
+            'B <input type="text" class="cp-b" /><hr>' +
+            'H <input type="text" class="cp-h" /><br>' +
+            'S <input type="text" class="cp-s" /><br>' +
+            'B <input type="text" class="cp-v" /><hr>' +
+            '<input type="text" class="cp-HEX" />' +
+            '</div>').on('change', 'input', function(e) {
+            var value = this.value,
+                className = this.className,
+                type = className.split('-')[1],
+                color = {};
+
+            color[type] = value;
+            colorInstance.setColor(type === 'HEX' ? value : color,
+                type === 'HEX' ? 'HEX' : /(?:r|g|b)/.test(type) ? 'rgb' : 'hsv');
+            colorPicker.render();
+            this.blur();
+        });
+    },
+
+    cssAddon: // could also be in a css file instead
+        '.cp-color-picker{box-sizing:border-box; width:246px;}' +
+        '.cp-color-picker .cp-panel {line-height: 21px; float:right;' +
+        'padding:0 1px 0 8px; margin-top:-1px; overflow:visible}' +
+        '.cp-xy-slider:active {cursor:none;}' +
+        '.cp-panel, .cp-panel input {color:#bbb; font-family:monospace,' +
+        '"Courier New",Courier,mono; font-size:12px; font-weight:bold;}' +
+        '.cp-panel input {width:38px; padding:2px 3px 1px;' +
+        'text-align:right; line-height:12px; background:transparent;' +
+        'border:1px solid; border-color:#222 #666 #666 #222;}' +
+        '.cp-panel hr {margin:0 -2px 2px; height:1px; border:0;' +
+        'background:#666; border-top:1px solid #222;}' +
+        '.cp-panel .cp-HEX {width:54px; position:absolute; margin:1px -3px 0 -2px;}' +
+        '.cp-alpha {width:155px;}',
+
+    renderCallback: function($elm, toggled) {
+        var colors = this.color.colors.RND,
+            modes = {
+                r: colors.rgb.r,
+                g: colors.rgb.g,
+                b: colors.rgb.b,
+                h: colors.hsv.h,
+                s: colors.hsv.s,
+                v: colors.hsv.v,
+                HEX: this.color.colors.HEX
+            };
+
+        $('input', '.cp-panel').each(function() {
+            this.value = modes[this.className.substr(3)];
+        });
+    }
+});
+
+function dvSetCss() {
+    var $element = $(maPage.selection.objets[0]);
+    var css = {}
+    css["background-color"] = $("#dv-bg-color").val();
+    if ($("#dv-border-weight").val() == 0) {
+        css["border"] = ""
+    } else {
+        css["border"] = $("#dv-border-weight").val() + "px " + $("#dv-border-style").val() + " " + $("#dv-border-color").val();
+    }
+
+    css["border-radius"] = $("#dv-border-radius").val() + "px";
+    //shadow
+    if($("#dv-shadow-weight").val()!=0){
+    	css["box-shadow"] = $("#dv-shadow-weight").val() + "px " + $("#dv-shadow-weight").val() + "px " + $("#dv-shadow-weight").val() + "px " + $("#dv-ombre-color").val();}
+    else{
+    	css["box-shadow"] ="";
+    }
+    if (dv.rotateModif) {
+        css["transform"] = "rotate(" + $("#dv-rotate").val() + "deg)";
+    }
+    css["overflow"] = $("#dv-overflow").val();
+    css["padding"] = $("#dv-marge").val()+"px";
+    $element.css(css);
+}
+
+function dvInitCss() {
+	dv.rotateModif=false;
+    var $element = $(maPage.selection.objets[0]);
+    var css = $element.css(["background-color", "borderTopWidth", "borderTopStyle", "borderTopColor", "borderTopLeftRadius", "boxShadow", "transform", "overflow","padding-left"]);
+    dv.css = css;
+    if (css["background-color"] == "transparent") {
+        $("#dv-bg-color").val("rgba(255, 255, 255, 0)").css("background-color", "rgba(255, 255, 255, 0)");
+    } else {
+        $("#dv-bg-color").val(css["background-color"]).css("background-color", css["background-color"]);
+    }
+    $("#dv-border-weight").val(parseInt(css["borderTopWidth"].replace(/px/, "")));
+    $("#dv-border-style").val(css["borderTopStyle"]);
+    $("#dv-border-color").val(css["borderTopColor"]).css("background-color", css["borderTopColor"]);
+    $("#dv-border-radius").val(parseInt(css["borderTopLeftRadius"].replace(/px/, "")));
+    if (dv.css["boxShadow"] != "none") {
+        var temp = css["boxShadow"].split(")");
+        $("#dv-ombre-color").val(temp[0] + ")").css("background-color", temp[0] + ")");;
+        //console.log(temp);
+        if (temp[1]) {
+            temp = temp[1].split(" ");
+            temp[0] = temp[1].replace(/px/, "");
+        } else {
+            temp[0] = 0
+        }
+        $("#dv-shadow-weight").val(temp[0]);
+    }
+    $("#dv-overflow").val(css["overflow"]);
+    $("#dv-marge").val(parseInt(css["padding-left"].replace(/px/, "")));
+}
+
+$("#dv-css")
+    .on("input", ".dv-refresh", dvSetCss)
+    .on("click", function(evt){
+    	evt.stopPropagation();
+    	dvSetCss();
+    });
+$("#dv-rotate").on("input",function(evt){
+	dv.rotateModif=true;
+});
+//$("#couleur").on("click",function(evt){$("#dvCouleurInput").trigger("focusin")});
+$("#dv-border-weight").on("input", function(evt) {
+    if ($(this).val() > 0) {
+        $(".border").show();
+    } else {
+        $(".border").hide();
+        $("#dd").css("border", "");
+    }
+});
+$("#dv-mf").on("click",function(evt){
+	evt.stopPropagation();
+	$("#dv-css").toggleClass("masquer");
+	if($("#dv-css").hasClass("masquer")){
+		$("#dv-css").slideUp(300);
+	}else{
+		$("#dv-css").slideDown(300);
+	}
+});
+$("#menuEbauche").on("click",function(evt){
+	if(!$("#dv-css").hasClass("masquer")){
+		$("#dv-mf").trigger("click");
+	}
+});
+$("#dv-marge").on("input", ".dv-refresh", dvSetCss);
+dvInitCss();
+</script>

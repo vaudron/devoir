@@ -713,7 +713,6 @@ textarea.partiel {
 }
 
 .dvScience {
-    border: 1px solid #999;
     border-radius: 10px;
 }
 
@@ -726,14 +725,11 @@ textarea.partiel {
     float: right;
     top: -15px;
 }
-
-
+.dvOmbre{
+    box-shadow: 3px 3px 3px #999;
 }
 .dvMq {
     position: relative;
-}
-.dvMq:hover {
-    background-color: rgb(136, 187, 221);
 }
 .dvScience .add {
     display: none;

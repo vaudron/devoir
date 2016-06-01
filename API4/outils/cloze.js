@@ -26,6 +26,7 @@ var cloze = function (selectorDonnees, selectorRendu) {
 		selecteurResultat = selectorRendu; //là où le travail de l'élève est enregistré
     this.note = 0;
     this.max = 0;
+    this.id= selectorDonnees.substring(6);
     //type de texte à tous:
     // MD : mots à déplacer dans les espaces
     // TC : Trous à compléter
@@ -63,11 +64,17 @@ var cloze = function (selectorDonnees, selectorRendu) {
                     tabMots[n] = tabMots[tabMots.length - i - 1];
                     tabMots[tabMots.length - i - 1] = temp;
                 }
-                txtHtml = "<div class=\"clozeListeMots\" depot=\"\"></div>";
+                if(tabMots.length==0){
+                    txtHtml = "<div style=\"border-width: 0px;border-radius: 10px;margin-bottom: 0px;min-height: 0px;\" class=\"clozeListeMots\" depot=\"\"></div>";
+                }else{
+                    txtHtml = "<div class=\"clozeListeMots\" depot=\"\"></div>";
+                }
+                
                 $("" + selecteurResultat).prepend(txtHtml);
                 for (var t = 0; t < tabMots.length; t++) {
 					$("" + selecteurResultat + " .clozeListeMots").append("<span class=\"clozeObj clozeObjs\">" + tabMots[t] + "</span>");
                 }
+
                 //$(".clozeListeMots").append("<input id=\"resultat3\" type=\"hidden\" \>");
                 $("" + selecteurResultat + " span[class*=clozeCibles]").attr("depot", "");
                 //définition des interactivités
@@ -97,13 +104,15 @@ var cloze = function (selectorDonnees, selectorRendu) {
 
     this.setInteractivite = function () {
 
+        if(!dv.modeEbauche){
             $("" + selecteurResultat + " span[class*=clozeObj]").draggable({
                 cursor: "pointer",
+                scroll: false,
                 revert: function (element) {
                     if (element === false) {
                         return true;
                     } else {
-                        if (element.attr("depot") != "" || !(element.hasClass("clozeListeMots") || element.hasClass("clozeCibles"))) {
+                        if ((element.attr("depot") != "" && $(this).text().replace(/'/g, "&apos;") != element.attr("depot") ) || !(element.hasClass("clozeListeMots") || (element.hasClass("clozeCibles")))) {
                             return true;
                         } else {
                             //$(element).attr("depot",$(this).text());
@@ -136,7 +145,7 @@ var cloze = function (selectorDonnees, selectorRendu) {
             $("" + selecteurResultat + " .clozeListeMots").droppable({
                 accept: "" + selecteurResultat + " .clozeObj"
             });
-       
+        }
          //   $("" + selecteurResultat + " input[class*=clozeCibles]")
          //       .change(function () {
          //          $("" + selecteurResultat).val($(selecteurDuContener).html());
@@ -146,9 +155,9 @@ var cloze = function (selectorDonnees, selectorRendu) {
     this.correction = function () {
         this.max = 0;
         this.note = 0;
+        var bareme = parseFloat($("#boite"+this.id).find("bareme").text());
         var note = 0;
         var max = 0;
-        
 			//$("" + selecteurResultat + " .clozeListeMots").hide();
             $("" + selecteurResultat + " span[class*=clozeCible]").each(function (index) {
                 max += 1;
@@ -163,7 +172,6 @@ var cloze = function (selectorDonnees, selectorRendu) {
                 }
                 $("" + selecteurResultat + " .clozeObj:contains("+$(this).attr("depot").replace(/&apos;/g, "'")+")").remove();
             });
-
             $("" + selecteurResultat + " .clozeInput").each(
                 function (index) {
                     max += 1;
@@ -180,12 +188,13 @@ var cloze = function (selectorDonnees, selectorRendu) {
                 });
         this.note = note;
         this.max = max;
+        bareme=(bareme == 0)? max  : bareme;
         var zoneResult=$(selecteurResultat).parents(".page").find("[id*=noteq]").attr("id");
         zoneResult=zoneResult.substring(4);
-        note_globale += parseFloat(note);
-        note_max += parseFloat(max);
-        afficheNote(zoneResult, note);
-        afficheNote(zoneResult + "max", max);
+        note_globale += (parseFloat(note)/parseFloat(max))*bareme;
+        note_max += bareme;
+        afficheNote(zoneResult, (parseFloat(note)/parseFloat(max))*bareme);
+        afficheNote(zoneResult + "max", bareme);
         return this.note + "/" + this.max;
     }
-	}
+}

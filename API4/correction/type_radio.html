@@ -3,7 +3,7 @@
     <div style="background-color: white; position: absolute; top: -16px; left: 20px; padding: 5px;">Réponse juste</div>
     état attendu du bouton radio :
     <div class="case" style="height: 2em; position: relative; top: 5px; left: 50px;">
-        <input id="mcCoche" autocomplete="off" type="radio">
+        <input id="mcCoche" autocomplete="off" type="radio" name="casegr1" disabled="">
         <label for="mcCoche"> </label>
     </div>
 
@@ -48,7 +48,7 @@
         $($obj).find("note").text("" + $(this).val());
         corrige.setCode("radio");
     });
-    $("#menuCorrection #mcCoche+label").on("mousedown", function (evt) {
+    $("#menuCorrection #mcCoche+label").on("mouseup", function (evt) {
         evt.stopPropagation();
         var $obj = maPage.selection.objets[0];
         if ($(this).prev().prop("checked")) {

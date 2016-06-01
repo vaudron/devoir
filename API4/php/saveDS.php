@@ -118,9 +118,9 @@ function inMysql($info){
 }
 
 if (inMysql($_POST)){
-	echo $_POST["prenom"]." ".$_POST["nom"].",votre devoir est bien enregistré.\n";
+	echo '<span style="text-align: center; margin-top: 40px; width: 100%; display: inline-block;">'.$_POST["prenom"].' '.$_POST["nom"].', votre devoir est bien enregistré.</span>';
 }else{
-	echo "\n\nATTENTION ERREUR lors de l'enregistrement de votre devoir.\n\n\n PREVENEZ VOTRE PROFESSEUR AVANT DE POURSUIVRE !";
+	echo '<span style="text-align: center; margin-top: 40px; width: 100%; display: inline-block;">ATTENTION ERREUR lors de l\'enregistrement de votre devoir.</span><span style="text-align: center; width: 100%; display: inline-block; margin-top: 10px; color: red; font-weight: bold; font-size: 12px;">PREVENEZ VOTRE PROFESSEUR AVANT DE POURSUIVRE !"</span>';
 }
 
 //print_r($_POST);

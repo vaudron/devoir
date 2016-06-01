@@ -1,0 +1,12 @@
+<h1 style="margin: 0px;">Correction texte à trous</h1>
+<div>
+    <span>barème : </span>
+    <input style="width:50px;text-align:center;height:2em;" type="number" step="0.1" min="0" id="mcBareme" class="text_eleve"><span> point(s) attribué(s) à l'exercice'.</span>
+</div>
+<script>
+$("#mcBareme").val($(maPage.selection.objets[0]).find("bareme").text());
+$("#mcBareme").on("change",function(event) {
+    var id = $(maPage.selection.objets[0]).attr("id") //id de la boite séléctionné
+    $("#"+id).find("bareme").text($(this).val());
+});
+</script>

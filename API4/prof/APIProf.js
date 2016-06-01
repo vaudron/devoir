@@ -36,8 +36,9 @@ function supprime_devoir(userID){
 
 function recorrection(userID, devoirID){
 	
+	reinitialise();
 	searchDataDevoir(userID, devoirID);
-	correction();
+	//correction();
 	note=""+Math.round((note_globale / note_max *20)*10)/10;
 	document.getElementById("noteDevoir").value=note;
 	$("#prof").data("encourt",""+userID);
